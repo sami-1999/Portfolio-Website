@@ -1,0 +1,149 @@
+{
+  "personalInfo": {
+    "name": "MUHAMMAD SAMI",
+    "title": "Software Engineer | Laravel | Node.js",
+    "subtitle": "Backend Developer",
+    "email": "mohammadsami501@gmail.com",
+    "phone": "+923132835015",
+    "location": "Pakistan",
+    "profileName": "Muhammad Sami",
+    "avatar": "/avatar-main.png",
+    "whatsappNumber": "923132835015",
+    "resumePath": "/Muhammad Sami Resume.pdf"
+  },
+  "professionalSummary": {
+    "text": "Backend Developer with 4+ years of experience building secure and scalable applications using PHP (Laravel). Skilled in RESTful API design, MySQL/MongoDB query optimization, and proficient in Node.js with working knowledge of React.js & Next.js. Strong focus on clean architecture, performance optimization, and modern development practices with growing full-stack expertise.",
+    "stats": {
+      "yearsExperience": "4+",
+      "projectsCompleted": "50+",
+      "apiIntegrations": "15+"
+    }
+  },
+  "skills": {
+    "technical": {
+      "Programming Languages": ["PHP", "JavaScript"],
+      "Frameworks": ["Laravel", "CodeIgniter", "Node.js", "jQuery", "React.js", "Next.js"],
+      "Databases": ["MySQL", "MariaDB"],
+      "Version Control": ["Git", "GitHub"],
+      "API Integrations": [
+        "Retell AI (Voice Agent)",
+        "Cal.com",
+        "Stripe",
+        "PayPal",
+        "Twilio",
+        "Google Maps",
+        "Wazzup",
+        "Umnico(meta)",
+        "Authorize.net",
+        "Square"
+      ],
+      "Other": ["RESTful APIs", "JWT", "OAuth", "Webhooks"]
+    },
+    "other": {
+      "CRM Tools": ["Zoho CRM"],
+      "Collaboration": ["Slack", "Microsoft Teams"],
+      "Project Management Tools": ["Jira", "Trello"],
+      "Soft Skills": ["Observation", "Decision making", "Communication", "Multi-tasking"]
+    }
+  },
+  "experience": [
+    {
+      "title": "Software Engineer",
+      "company": "Adalat Group",
+      "period": "Dec 24 - Present",
+      "location": "Pakistan",
+      "type": "Current",
+      "achievements": [
+        "Developed a CRM module from scratch, including lead management, real-time client–agent communication, and integration with WhatsApp, Facebook (Meta) APIs, and Pusher for instant notifications.",
+        "Built a Stock Management System from scratch, covering Normal & Lot-wise inventory, low stock and expiry alerts, plus stock movement operations (In, Out, Transfer).",
+        "Collaborated in an Agile environment with Jira for sprint tracking and Git for version control, ensuring scalable and maintainable solutions."
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Quantum Computing Services",
+      "period": "Jan 24 - Nov 24",
+      "location": "Pakistan",
+      "type": "Full-time",
+      "achievements": [
+        "Worked on an email marketing automation tool, contributing to both backend (Laravel) and frontend (Next.js) development in a collaborative team environment.",
+        "Engineered a custom SQL query builder to execute core database queries without Eloquent, significantly improving performance and response times.",
+        "Built and maintained RESTful APIs to ensure smooth data exchange between frontend and backend components.",
+        "Integrated APIs on the frontend and used Git for version control to manage and track development tasks effectively."
+      ]
+    },
+    {
+      "title": "Mid-Level Software Engineer",
+      "company": "Salsoft Technologies",
+      "period": "Oct 21 - Dec 23",
+      "location": "Pakistan",
+      "type": "Full-time",
+      "achievements": [
+        "Developed and maintained backend systems using PHP (Laravel), including custom CMS solutions, e-commerce platforms, and admin panels from backend to deployment.",
+        "Integrated third-party APIs and payment gateways, and used Blade templating to build responsive, dynamic interfaces with a focus on performance and usability."
+      ]
+    },
+    {
+      "title": "PHP Developer",
+      "company": "Mad Minds Creative",
+      "period": "Dec 20 - Sep 21",
+      "location": "Pakistan",
+      "type": "Full-time",
+      "achievements": [
+        "Collaborated with team members to complete assigned tasks and converted static HTML templates into responsive, cross-browser-compatible WordPress themes with clean code structure."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Laravel API CRUD Generator",
+      "description": "Published a Composer package on Packagist to automate CRUD API generation using Artisan commands, streamlining route, controller, and model creation with validation. Reused across projects to reduce repetitive code and accelerate development.",
+      "link": "https://packagist.org/packages/muhammadsami/laravel-crud-generator",
+      "linkText": "View on Packagist",
+      "status": "Published"
+    },
+    {
+      "title": "Email Marketing System",
+      "description": "Developed an email marketing platform with multi-server support for improved deliverability and load distribution. Implemented smart scheduling, audience segmentation, bounce tracking, and real-time server monitoring for high-volume, efficient email delivery.",
+      "status": "Production"
+    },
+    {
+      "title": "Dentalzorg ERP",
+      "description": "Independently developed a dental CRM module from scratch as part of a regional ERP system, enabling clinics to manage patients, appointments, and treatments, with role-based access and automated reminders.",
+      "link": "https://www.dentalzorg.nl",
+      "linkText": "Visit Website",
+      "status": "Live"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Software Engineering (BSSE)",
+      "institution": "Virtual University",
+      "duration": "2021 - Present",
+      "focus": "Software Engineering",
+      "coursework": ["Artificial Intelligence", "Data & Network Security"]
+    },
+    {
+      "degree": "Diploma of Associate Engineer in Mechanical Engineering (MT)",
+      "institution": "Saifee Institute of Technology",
+      "duration": "2016 - 2020"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Node.js Backend Development",
+      "issuer": "devTown",
+      "date": "Apr 2023",
+      "description": "Advanced Node.js programming and backend development certification"
+    }
+  ],
+  "contact": {
+    "formTitle": "Get In Touch",
+    "formDescription": "I'm always interested in new opportunities and exciting projects. Whether you have a question or just want to say hi, feel free to reach out!",
+    "messageTitle": "Send Message"
+  },
+  "footer": {
+    "copyright": "© 2024 Muhammad Sami. All rights reserved. Built with Next.js and Tailwind CSS."
+  },
+  "navigation": ["Home", "Summary", "Skills", "Experience", "Projects", "Education", "Certifications", "Get in Touch"]
+}

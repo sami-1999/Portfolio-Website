@@ -14,14 +14,25 @@ import {
   faCalendarDays
 } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import portfolioData from '../data/portfolio.json';
+import { PortfolioData } from '../types/portfolio';
+
+// Type assertion for the imported JSON data
+const data: PortfolioData = portfolioData as PortfolioData;
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState("summary");
+  const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Check if we're at the top of the page (Home section)
+      if (window.scrollY < 100) {
+        setActiveSection("home");
+        return;
+      }
 
       // Get all sections
       const sections = [
@@ -57,6 +68,15 @@ export default function Home() {
 
   // Function to scroll to section
   const scrollToSection = (sectionId: string) => {
+    // Handle Home button - scroll to top
+    if (sectionId === "home") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      return;
+    }
+    
     // Map "Get in Touch" to "contact" section
     const targetId = sectionId === "get in touch" ? "contact" : sectionId;
     const element = document.getElementById(targetId);
@@ -68,148 +88,6 @@ export default function Home() {
       });
     }
   };
-
-  // Technical skills consolidated into one section
-  const technicalSkills = {
-    "Programming Languages": ["PHP", "JavaScript"],
-    Frameworks: [
-      "Laravel",
-      "CodeIgniter",
-      "Node.js",
-      "jQuery",
-      "React.js",
-      "Next.js",
-    ],
-    Databases: ["MySQL", "MariaDB"],
-    "Version Control": ["Git", "GitHub"],
-    "API Integrations": [
-      "Retell AI (Voice Agent)",
-      "Cal.com",
-      "Stripe",
-      "PayPal",
-      "Twilio",
-      "Google Maps",
-      "Wazzup",
-      "Umnico(meta)",
-      "Authorize.net",
-      "Square",
-    ],
-    Other: ["RESTful APIs", "JWT", "OAuth", "Webhooks"],
-  };
-
-  // Non-technical skills
-  const otherSkills = {
-    "CRM Tools": ["Zoho CRM"],
-    Collaboration: ["Slack", "Microsoft Teams"],
-    "Project Management Tools": ["Jira", "Trello"],
-    "Soft Skills": [
-      "Observation",
-      "Decision making",
-      "Communication",
-      "Multi-tasking",
-    ],
-  };
-
-  const experiences = [
-    {
-      title: "Software Engineer",
-      company: "Adalat Group",
-      period: "Dec 24 - Present",
-      location: "Pakistan",
-      type: "Current",
-      achievements: [
-        "Developed a CRM module from scratch, including lead management, real-time client–agent communication, and integration with WhatsApp, Facebook (Meta) APIs, and Pusher for instant notifications.",
-        "Built a Stock Management System from scratch, covering Normal & Lot-wise inventory, low stock and expiry alerts, plus stock movement operations (In, Out, Transfer).",
-        "Collaborated in an Agile environment with Jira for sprint tracking and Git for version control, ensuring scalable and maintainable solutions.",
-      ],
-    },
-    {
-      title: "Software Engineer",
-      company: "Quantum Computing Services",
-      period: "Jan 24 - Nov 24",
-      location: "Pakistan",
-      type: "Full-time",
-      achievements: [
-        "Worked on an email marketing automation tool, contributing to both backend (Laravel) and frontend (Next.js) development in a collaborative team environment.",
-        "Engineered a custom SQL query builder to execute core database queries without Eloquent, significantly improving performance and response times.",
-        "Built and maintained RESTful APIs to ensure smooth data exchange between frontend and backend components.",
-        "Integrated APIs on the frontend and used Git for version control to manage and track development tasks effectively.",
-      ],
-    },
-    {
-      title: "Mid-Level Software Engineer",
-      company: "Salsoft Technologies",
-      period: "Oct 21 - Dec 23",
-      location: "Pakistan",
-      type: "Full-time",
-      achievements: [
-        "Developed and maintained backend systems using PHP (Laravel), including custom CMS solutions, e-commerce platforms, and admin panels from backend to deployment.",
-        "Integrated third-party APIs and payment gateways, and used Blade templating to build responsive, dynamic interfaces with a focus on performance and usability.",
-      ],
-    },
-    {
-      title: "PHP Developer",
-      company: "Mad Minds Creative",
-      period: "Dec 20 - Sep 21",
-      location: "Pakistan",
-      type: "Full-time",
-      achievements: [
-        "Collaborated with team members to complete assigned tasks and converted static HTML templates into responsive, cross-browser-compatible WordPress themes with clean code structure.",
-      ],
-    },
-  ];
-
-  const projects = [
-    {
-      title: "Laravel API CRUD Generator",
-      description:
-        "Published a Composer package on Packagist to automate CRUD API generation using Artisan commands, streamlining route, controller, and model creation with validation. Reused across projects to reduce repetitive code and accelerate development.",
-      link: "https://packagist.org/packages/muhammadsami/laravel-crud-generator",
-      linkText: "View on Packagist",
-      status: "Published",
-    },
-    {
-      title: "Email Marketing System",
-      description:
-        "Developed an email marketing platform with multi-server support for improved deliverability and load distribution. Implemented smart scheduling, audience segmentation, bounce tracking, and real-time server monitoring for high-volume, efficient email delivery.",
-      status: "Production",
-    },
-    {
-      title: "Dentalzorg ERP",
-      description:
-        "Independently developed a dental CRM module from scratch as part of a regional ERP system, enabling clinics to manage patients, appointments, and treatments, with role-based access and automated reminders.",
-      link: "https://www.dentalzorg.nl",
-      linkText: "Visit Website",
-      status: "Live",
-    },
-  ];
-
-  const certifications = [
-    {
-      title: "PHP Certified Developer",
-      issuer: "Zend Technologies",
-      date: "2022",
-      description: "Advanced PHP programming and best practices certification"
-    },
-    {
-      title: "Laravel Certified Developer",
-      issuer: "Laravel",
-      date: "2023",
-      description: "Expert-level Laravel framework development certification"
-    },
-    {
-      title: "MySQL Database Administrator",
-      issuer: "Oracle",
-      date: "2021",
-      description: "Database design, optimization, and administration certification"
-    },
-    {
-      title: "AWS Cloud Practitioner",
-      issuer: "Amazon Web Services",
-      date: "2023",
-      description: "Cloud computing fundamentals and AWS services certification"
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-slate-900 text-white">
@@ -224,24 +102,22 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <button className="text-2xl font-bold text-white bg-transparent hover:text-blue-400 transition-colors duration-300">
-              Muhammad Sami
+              {data.personalInfo.profileName}
             </button>
             <div className="hidden md:flex space-x-4">
-              {["Summary", "Skills", "Experience", "Projects", "Education", "Certifications", "Get in Touch"].map(
-                (item) => (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(item.toLowerCase())}
-                    className={`px-4 py-2 rounded-lg transition-all duration-300 bg-transparent ${
-                      (activeSection === item.toLowerCase()) || (activeSection === "contact" && item === "Get in Touch")
-                        ? "text-blue-400 border border-blue-400"
-                        : "text-slate-300 hover:text-blue-400 hover:border hover:border-blue-400/50"
-                    }`}
-                  >
-                    {item}
-                  </button>
-                )
-              )}
+              {data.navigation.map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                  className={`px-4 py-2 rounded-lg transition-all duration-300 bg-transparent ${
+                    (activeSection === item.toLowerCase()) || (activeSection === "contact" && item === "Get in Touch")
+                      ? "text-slate-100 border border-slate-400 bg-slate-700/30"
+                      : "text-slate-300 hover:text-slate-100 hover:border hover:border-slate-400/50"
+                  }`}
+                >
+                  {item}
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -255,23 +131,23 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mb-8">
               <div className="text-center lg:text-left">
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-100 mb-4 leading-tight">
-                  Muhammad Sami
+                  {data.personalInfo.profileName}
                 </h1>
-                <div className="text-xl md:text-2xl lg:text-3xl text-blue-300 mb-3 font-semibold">
+                <div className="text-xl md:text-2xl lg:text-3xl text-slate-300 mb-3 font-semibold">
                   Software Engineer
                 </div>
                 <div className="text-lg md:text-xl text-gray-300 mb-2">
-                  Laravel | Node.js | Full Stack Developer
+                  {data.personalInfo.title}
                 </div>
                 <div className="text-base md:text-lg text-gray-400">
-                  4+ Years Experience • 50+ Projects Delivered
+                  {data.professionalSummary.stats.yearsExperience} Years Experience • {data.professionalSummary.stats.projectsCompleted} Projects Delivered
                 </div>
               </div>
               <div className="relative flex-shrink-0">
                 <div className="bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-2xl p-6 backdrop-blur-sm border border-slate-700/50 hover:border-blue-400/30 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10">
                   <Image
-                    src="/avatar-main.png"
-                    alt="Muhammad Sami - Software Engineer"
+                    src={data.personalInfo.avatar}
+                    alt={`${data.personalInfo.profileName} - Software Engineer`}
                     width={0}
                     height={0}
                     sizes="100vw"
@@ -283,28 +159,35 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center bg-slate-800/80 rounded-full px-6 py-3 shadow-lg border border-slate-600/50 hover:border-blue-400/50 transition-all duration-300">
-                <FontAwesomeIcon icon={faEnvelope} className="text-blue-400 text-xl mr-3" />
+              <div className="flex items-center bg-slate-800/80 rounded-full px-6 py-3 shadow-lg border border-slate-600/50 hover:border-slate-400/50 transition-all duration-300">
+                <FontAwesomeIcon icon={faEnvelope} className="text-slate-400 text-xl mr-3" />
                 <span className="text-gray-200">
-                  mohammadsami501@gmail.com
+                  {data.personalInfo.email}
                 </span>
               </div>
-              <div className="flex items-center bg-slate-800/80 rounded-full px-6 py-3 shadow-lg border border-slate-600/50 hover:border-blue-400/50 transition-all duration-300">
-                <FontAwesomeIcon icon={faPhone} className="text-blue-400 text-xl mr-3" />
-                <span className="text-gray-200">+923132835015</span>
+              <div className="flex items-center bg-slate-800/80 rounded-full px-6 py-3 shadow-lg border border-slate-600/50 hover:border-slate-400/50 transition-all duration-300">
+                <FontAwesomeIcon icon={faPhone} className="text-slate-400 text-xl mr-3" />
+                <span className="text-gray-200">{data.personalInfo.phone}</span>
               </div>
-              <div className="flex items-center bg-slate-800/80 rounded-full px-6 py-3 shadow-lg border border-slate-600/50 hover:border-blue-400/50 transition-all duration-300">
-                <FontAwesomeIcon icon={faLocationDot} className="text-blue-400 text-xl mr-3" />
-                <span className="text-gray-200">Pakistan</span>
+              <div className="flex items-center bg-slate-800/80 rounded-full px-6 py-3 shadow-lg border border-slate-600/50 hover:border-slate-400/50 transition-all duration-300">
+                <FontAwesomeIcon icon={faLocationDot} className="text-slate-400 text-xl mr-3" />
+                <span className="text-gray-200">{data.personalInfo.location}</span>
               </div>
             </div>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <button className="bg-transparent border border-slate-600 text-gray-200 px-8 py-4 rounded-lg font-semibold hover:text-blue-400 hover:border-blue-400/50 hover:bg-blue-400/5 transition-all duration-300 flex items-center">
+              <a
+                href={data.personalInfo.resumePath}
+                download="Muhammad Sami Resume.pdf"
+                className="bg-transparent border border-slate-600 text-gray-200 px-8 py-4 rounded-lg font-semibold hover:text-slate-100 hover:border-slate-400 hover:bg-slate-700/30 transition-all duration-300 flex items-center"
+              >
                 <FontAwesomeIcon icon={faDownload} className="mr-2" />
                 Download Resume
-              </button>
-              <button className="bg-transparent border border-slate-600 text-gray-200 px-8 py-4 rounded-lg font-semibold hover:text-blue-400 hover:border-blue-400/50 hover:bg-blue-400/5 transition-all duration-300 flex items-center">
+              </a>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="bg-transparent border border-slate-600 text-gray-200 px-8 py-4 rounded-lg font-semibold hover:text-slate-100 hover:border-slate-400 hover:bg-slate-700/30 transition-all duration-300 flex items-center"
+              >
                 <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
                 Contact Me
               </button>
@@ -326,30 +209,25 @@ export default function Home() {
           <div className="bg-slate-800 rounded-2xl shadow-xl p-8 md:p-12 border border-slate-700">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-slate-200 mb-2">4+</div>
+                <div className="text-4xl font-bold text-slate-200 mb-2">{data.professionalSummary.stats.yearsExperience}</div>
                 <div className="text-slate-300">Years Experience</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-slate-200 mb-2">
-                  50+
+                  {data.professionalSummary.stats.projectsCompleted}
                 </div>
                 <div className="text-slate-300">Projects Completed</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-slate-200 mb-2">
-                  15+
+                  {data.professionalSummary.stats.apiIntegrations}
                 </div>
                 <div className="text-slate-300">API Integrations</div>
               </div>
             </div>
 
             <p className="text-slate-300 leading-relaxed text-lg text-center">
-              Backend Developer with 4+ years of experience building secure and
-              scalable applications using PHP (Laravel). Skilled in RESTful API
-              design, MySQL/MongoDB query optimization, and proficient in
-              Node.js with working knowledge of React.js & Next.js. Strong focus
-              on clean architecture, performance optimization, and modern
-              development practices with growing full-stack expertise.
+              {data.professionalSummary.text}
             </p>
           </div>
         </section>
@@ -368,7 +246,7 @@ export default function Home() {
                 Technical Skills
               </h3>
               <div className="grid gap-6">
-                {Object.entries(technicalSkills).map(
+                {Object.entries(data.skills.technical).map(
                   ([category, skills], index) => (
                     <div key={index}>
                       <h4 className="text-lg font-semibold text-slate-300 mb-3">
@@ -403,7 +281,7 @@ export default function Home() {
                 Other Skills
               </h3>
               <div className="grid gap-6">
-                {Object.entries(otherSkills).map(
+                {Object.entries(data.skills.other).map(
                   ([category, skills], index) => (
                     <div key={index}>
                       <h4 className="text-lg font-semibold text-slate-300 mb-3">
@@ -442,7 +320,7 @@ export default function Home() {
           </div>
 
           <div className="space-y-8">
-            {experiences.map((exp, index) => (
+            {data.experience.map((exp, index) => (
               <div
                 key={index}
                 className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700 hover:border-slate-600 transition-colors duration-300"
@@ -496,7 +374,7 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+            {data.projects.map((project, index) => (
               <div
                 key={index}
                 className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700 hover:border-slate-600 transition-all duration-300 hover:transform hover:scale-105"
@@ -543,20 +421,30 @@ export default function Home() {
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
           </div>
 
-          <div className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-white mb-2">
-                Bachelor of Science in Computer Science
-              </h3>
-              <div className="text-lg text-blue-400 font-semibold mb-2">
-                University of Education, Lahore
+          <div className="space-y-8">
+            {data.education.map((edu, index) => (
+              <div key={index} className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    {edu.degree}
+                  </h3>
+                  <div className="text-lg text-blue-400 font-semibold mb-2">
+                    {edu.institution}
+                  </div>
+                  <div className="text-slate-300 mb-4">{edu.duration}</div>
+                  {edu.focus && (
+                    <div className="text-slate-400 mb-2">
+                      Focus: {edu.focus}
+                    </div>
+                  )}
+                  {edu.coursework && (
+                    <div className="text-slate-400">
+                      Relevant Coursework: {edu.coursework.join(", ")}
+                    </div>
+                  )}
+                </div>
               </div>
-              <div className="text-slate-300">2018 - 2022</div>
-              <div className="text-slate-400 mt-4">
-                Focused on software engineering, database systems, and web
-                development
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
@@ -568,7 +456,7 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {certifications.map((cert, index) => (
+            {data.certifications.map((cert, index) => (
               <div
                 key={index}
                 className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700 hover:border-slate-600 transition-colors duration-300"
@@ -603,32 +491,31 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h3 className="text-3xl font-bold text-white mb-6">Get In Touch</h3>
+              <h3 className="text-3xl font-bold text-white mb-6">{data.contact.formTitle}</h3>
               <p className="text-slate-300 leading-relaxed mb-8">
-                I&apos;m always interested in new opportunities and exciting projects. 
-                Whether you have a question or just want to say hi, feel free to reach out!
+                {data.contact.formDescription}
               </p>
               
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <FontAwesomeIcon icon={faEnvelope} className="text-blue-400 text-xl mr-4" />
+                  <FontAwesomeIcon icon={faEnvelope} className="text-slate-400 text-xl mr-4" />
                   <div>
                     <div className="text-white font-semibold">Email</div>
-                    <div className="text-slate-300">mohammadsami501@gmail.com</div>
+                    <div className="text-slate-300">{data.personalInfo.email}</div>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <FontAwesomeIcon icon={faPhone} className="text-blue-400 text-xl mr-4" />
+                  <FontAwesomeIcon icon={faPhone} className="text-slate-400 text-xl mr-4" />
                   <div>
                     <div className="text-white font-semibold">Phone</div>
-                    <div className="text-slate-300">+923132835015</div>
+                    <div className="text-slate-300">{data.personalInfo.phone}</div>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <FontAwesomeIcon icon={faLocationDot} className="text-blue-400 text-xl mr-4" />
+                  <FontAwesomeIcon icon={faLocationDot} className="text-slate-400 text-xl mr-4" />
                   <div>
                     <div className="text-white font-semibold">Location</div>
-                    <div className="text-slate-300">Pakistan</div>
+                    <div className="text-slate-300">{data.personalInfo.location}</div>
                   </div>
                 </div>
               </div>
@@ -636,7 +523,7 @@ export default function Home() {
 
             {/* Contact Form */}
             <div>
-              <h3 className="text-3xl font-bold text-white mb-6">Send Message</h3>
+              <h3 className="text-3xl font-bold text-white mb-6">{data.contact.messageTitle}</h3>
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -706,7 +593,7 @@ export default function Home() {
           {/* Footer Bottom */}
           <div className="border-t border-slate-700 mt-12 pt-8 text-center">
             <p className="text-slate-400">
-              © 2024 Muhammad Sami. All rights reserved. Built with Next.js and Tailwind CSS.
+              {data.footer.copyright}
             </p>
           </div>
         </div>
@@ -714,7 +601,7 @@ export default function Home() {
 
       {/* Fixed WhatsApp Button */}
       <a 
-        href="https://wa.me/923132835015" 
+        href={`https://wa.me/${data.personalInfo.whatsappNumber}`}
         target="_blank" 
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:shadow-green-500/25 transition-all duration-300 z-50 group hover:scale-110"
