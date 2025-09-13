@@ -31,7 +31,7 @@
     "technical": {
       "Programming Languages": ["PHP", "JavaScript"],
       "Frameworks": ["Laravel", "CodeIgniter", "Node.js", "jQuery", "React.js", "Next.js"],
-      "Databases": ["MySQL", "MariaDB"],
+      "Databases": ["MySQL", "MariaDB", "MongoDB"],
       "Version Control": ["Git", "GitHub"]
     },
     "apiIntegrations": [
@@ -110,22 +110,12 @@
       {
         "name": "Zoho CRM",
         "description": "Customer Relationship Management",
-        "logo": "https://www.zoho.com/crm/help/images/crm-logo.svg"
-      },
-      {
-        "name": "Zoho Creator",
-        "description": "Low-Code Application Development",
-        "logo": "https://www.zoho.com/creator/help/images/creator-logo.svg"
-      },
-      {
-        "name": "Zoho Sites",
-        "description": "Website Builder Platform",
-        "logo": "https://www.zoho.com/sites/help/images/sites-logo.svg"
+        "logo": "https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg"
       },
       {
         "name": "Deluge",
         "description": "Zoho's Scripting Language",
-        "logo": "https://www.zoho.com/deluge/help/images/deluge-logo.svg"
+        "logo": "https://www.zohowebstatic.com/sites/zweb/images/productlogos/deluge.svg"
       }
     ],
     "other": {

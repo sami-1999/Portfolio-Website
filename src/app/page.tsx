@@ -326,7 +326,7 @@ export default function Home() {
           </motion.div>
 
           {/* Technical Skills Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             {Object.entries(data.skills.technical).map(([category, skills], categoryIndex) => {
               // Define logos for technical skills
               const techLogos: { [key: string]: string } = {
@@ -345,6 +345,7 @@ export default function Home() {
                 // Databases
                 "MySQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
                 "MariaDB": "https://cdn.worldvectorlogo.com/logos/mariadb.svg",
+                "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
                 
                 // Version Control
                 "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
@@ -364,7 +365,7 @@ export default function Home() {
                     <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
                     {category}
                   </h3>
-                  <div className="grid grid-cols-1 gap-3">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {skills.map((skill, index) => (
                       <div
                         key={skill}
@@ -664,10 +665,9 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-white mb-2">
                     {edu.degree}
                   </h3>
-                  <div className="text-lg text-blue-400 font-semibold mb-2">
+                  <div className="text-lg text-blue-400 font-semibold mb-4">
                     {edu.institution}
                   </div>
-                  <div className="text-slate-300 mb-4">{edu.duration}</div>
                   {edu.focus && (
                     <div className="text-slate-400 mb-2">
                       Focus: {edu.focus}
