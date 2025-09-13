@@ -9,6 +9,8 @@ export interface PersonalInfo {
   avatar: string;
   whatsappNumber: string;
   resumePath: string;
+  github: string;
+  linkedin: string;
 }
 
 export interface ProfessionalSummary {

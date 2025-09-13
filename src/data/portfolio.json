@@ -9,7 +9,9 @@
     "profileName": "Muhammad Sami",
     "avatar": "/avatar-main.png",
     "whatsappNumber": "923132835015",
-    "resumePath": "/Muhammad Sami Resume.pdf"
+    "resumePath": "/Muhammad Sami Resume.pdf",
+    "github": "https://github.com/sami-1999",
+    "linkedin": "https://linkedin.com/in/muhammad-sami-dev"
   },
   "professionalSummary": {
     "text": "Backend Developer with 4+ years of experience building secure and scalable applications using PHP (Laravel). Skilled in RESTful API design, MySQL/MongoDB query optimization, and proficient in Node.js with working knowledge of React.js & Next.js. Strong focus on clean architecture, performance optimization, and modern development practices with growing full-stack expertise.",

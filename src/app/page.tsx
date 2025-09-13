@@ -14,7 +14,7 @@ import {
   faBuilding,
   faCalendarDays,
 } from "@fortawesome/free-solid-svg-icons";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faWhatsapp, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import portfolioData from "../data/portfolio.json";
 import { PortfolioData } from "../types/portfolio";
 
@@ -163,41 +163,55 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center bg-slate-800/80 rounded-full px-6 py-3 shadow-lg border border-slate-600/50 hover:border-slate-400/50 transition-all duration-300">
+            {/* Social & Resume Buttons */}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+              <a
+                href={data.personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center bg-slate-800/80 rounded-lg px-6 py-3 shadow-lg border border-slate-600/50 hover:border-slate-400/50 hover:bg-slate-700/50 transition-all duration-300 group w-full sm:w-auto"
+                aria-label="GitHub Profile"
+              >
                 <FontAwesomeIcon
-                  icon={faEnvelope}
-                  className="text-slate-400 text-xl mr-3"
+                  icon={faGithub}
+                  className="text-slate-300 text-xl mr-3 group-hover:text-white transition-colors duration-300"
                 />
-                <span className="text-gray-200">{data.personalInfo.email}</span>
-              </div>
-              <div className="flex items-center bg-slate-800/80 rounded-full px-6 py-3 shadow-lg border border-slate-600/50 hover:border-slate-400/50 transition-all duration-300">
-                <FontAwesomeIcon
-                  icon={faPhone}
-                  className="text-slate-400 text-xl mr-3"
-                />
-                <span className="text-gray-200">{data.personalInfo.phone}</span>
-              </div>
-              <div className="flex items-center bg-slate-800/80 rounded-full px-6 py-3 shadow-lg border border-slate-600/50 hover:border-slate-400/50 transition-all duration-300">
-                <FontAwesomeIcon
-                  icon={faLocationDot}
-                  className="text-slate-400 text-xl mr-3"
-                />
-                <span className="text-gray-200">
-                  {data.personalInfo.location}
+                <span className="text-slate-300 font-medium group-hover:text-white transition-colors duration-300">
+                  GitHub
                 </span>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-4">
+              </a>
+              <a
+                href={data.personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center bg-slate-800/80 rounded-lg px-6 py-3 shadow-lg border border-slate-600/50 hover:border-blue-400/50 hover:bg-slate-700/50 transition-all duration-300 group w-full sm:w-auto"
+                aria-label="LinkedIn Profile"
+              >
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  className="text-blue-400 text-xl mr-3 group-hover:text-blue-300 transition-colors duration-300"
+                />
+                <span className="text-slate-300 font-medium group-hover:text-white transition-colors duration-300">
+                  LinkedIn
+                </span>
+              </a>
               <a
                 href={data.personalInfo.resumePath}
                 download="Muhammad Sami Resume.pdf"
-                className="bg-transparent border border-slate-600 text-gray-200 px-8 py-4 rounded-lg font-semibold hover:text-slate-100 hover:border-slate-400 hover:bg-slate-700/30 transition-all duration-300 flex items-center"
+                className="flex items-center bg-slate-800/80 rounded-lg px-6 py-3 shadow-lg border border-slate-600/50 hover:border-green-400/50 hover:bg-slate-700/50 transition-all duration-300 group w-full sm:w-auto"
+                aria-label="Download Resume"
               >
-                <FontAwesomeIcon icon={faDownload} className="mr-2" />
-                Download Resume
+                <FontAwesomeIcon
+                  icon={faDownload}
+                  className="text-green-400 text-xl mr-3 group-hover:text-green-300 transition-colors duration-300"
+                />
+                <span className="text-slate-300 font-medium group-hover:text-white transition-colors duration-300">
+                  Download Resume
+                </span>
               </a>
+            </div>
+
+            <div className="flex justify-center">
               <button
                 onClick={() => scrollToSection("contact")}
                 className="bg-transparent border border-slate-600 text-gray-200 px-8 py-4 rounded-lg font-semibold hover:text-slate-100 hover:border-slate-400 hover:bg-slate-700/30 transition-all duration-300 flex items-center"
