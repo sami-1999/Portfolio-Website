@@ -258,7 +258,7 @@ export default function Home() {
                 {[
                   { name: 'PHP', level: 'Expert', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg', description: 'Backend development with Laravel framework' },
                   { name: 'JavaScript', level: 'Advanced', years: '3+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', description: 'Frontend and backend JavaScript development' },
-                  { name: 'Laravel', level: 'Expert', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg', description: 'Building scalable web applications and APIs' },
+                  { name: 'Laravel', level: 'Expert', years: '4+', logo: 'https://laravel.com/img/logomark.min.svg', description: 'Building scalable web applications and APIs' },
                   { name: 'MySQL', level: 'Advanced', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', description: 'Database design and optimization' },
                   { name: 'REST APIs', level: 'Expert', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg', description: 'Building and consuming RESTful web services' },
                   { name: 'Git', level: 'Advanced', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', description: 'Version control and collaborative development' }
@@ -346,7 +346,7 @@ export default function Home() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {[
-                  { name: 'Laravel', level: 'Expert', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg', description: 'Used for CRM and e-commerce platforms' },
+                  { name: 'Laravel', level: 'Expert', logo: 'https://laravel.com/img/logomark.min.svg', description: 'Used for CRM and e-commerce platforms' },
                   { name: 'Next.js', level: 'Intermediate', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg', description: 'React framework for production applications' },
                   { name: 'CodeIgniter', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg', description: 'PHP framework for rapid development' },
                   { name: 'Node.js', level: 'Intermediate', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', description: 'Server-side JavaScript runtime' },
