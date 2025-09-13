@@ -3,20 +3,20 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faEnvelope, 
-  faPhone, 
-  faLocationDot, 
-  faDownload, 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEnvelope,
+  faPhone,
+  faLocationDot,
+  faDownload,
   faPaperPlane,
   faUser,
   faBuilding,
-  faCalendarDays
-} from '@fortawesome/free-solid-svg-icons';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import portfolioData from '../data/portfolio.json';
-import { PortfolioData } from '../types/portfolio';
+  faCalendarDays,
+} from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import portfolioData from "../data/portfolio.json";
+import { PortfolioData } from "../types/portfolio";
 
 // Type assertion for the imported JSON data
 const data: PortfolioData = portfolioData as PortfolioData;
@@ -77,7 +77,7 @@ export default function Home() {
       });
       return;
     }
-    
+
     // Map "Get in Touch" to "contact" section
     const targetId = sectionId === "get in touch" ? "contact" : sectionId;
     const element = document.getElementById(targetId);
@@ -111,7 +111,8 @@ export default function Home() {
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
                   className={`px-4 py-2 rounded-lg transition-all duration-300 bg-transparent ${
-                    (activeSection === item.toLowerCase()) || (activeSection === "contact" && item === "Get in Touch")
+                    activeSection === item.toLowerCase() ||
+                    (activeSection === "contact" && item === "Get in Touch")
                       ? "text-slate-100 border border-slate-400 bg-slate-700/30"
                       : "text-slate-300 hover:text-slate-100 hover:border hover:border-slate-400/50"
                   }`}
@@ -141,7 +142,10 @@ export default function Home() {
                   {data.personalInfo.title}
                 </div>
                 <div className="text-base md:text-lg text-gray-400">
-                  {data.professionalSummary.stats.yearsExperience} Years Experience • {data.professionalSummary.stats.projectsCompleted} Projects Delivered
+                  {data.professionalSummary.stats.yearsExperience} Years
+                  Experience •{" "}
+                  {data.professionalSummary.stats.projectsCompleted} Projects
+                  Delivered
                 </div>
               </div>
               <div className="relative flex-shrink-0">
@@ -161,18 +165,27 @@ export default function Home() {
 
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <div className="flex items-center bg-slate-800/80 rounded-full px-6 py-3 shadow-lg border border-slate-600/50 hover:border-slate-400/50 transition-all duration-300">
-                <FontAwesomeIcon icon={faEnvelope} className="text-slate-400 text-xl mr-3" />
-                <span className="text-gray-200">
-                  {data.personalInfo.email}
-                </span>
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="text-slate-400 text-xl mr-3"
+                />
+                <span className="text-gray-200">{data.personalInfo.email}</span>
               </div>
               <div className="flex items-center bg-slate-800/80 rounded-full px-6 py-3 shadow-lg border border-slate-600/50 hover:border-slate-400/50 transition-all duration-300">
-                <FontAwesomeIcon icon={faPhone} className="text-slate-400 text-xl mr-3" />
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  className="text-slate-400 text-xl mr-3"
+                />
                 <span className="text-gray-200">{data.personalInfo.phone}</span>
               </div>
               <div className="flex items-center bg-slate-800/80 rounded-full px-6 py-3 shadow-lg border border-slate-600/50 hover:border-slate-400/50 transition-all duration-300">
-                <FontAwesomeIcon icon={faLocationDot} className="text-slate-400 text-xl mr-3" />
-                <span className="text-gray-200">{data.personalInfo.location}</span>
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  className="text-slate-400 text-xl mr-3"
+                />
+                <span className="text-gray-200">
+                  {data.personalInfo.location}
+                </span>
               </div>
             </div>
 
@@ -185,8 +198,8 @@ export default function Home() {
                 <FontAwesomeIcon icon={faDownload} className="mr-2" />
                 Download Resume
               </a>
-              <button 
-                onClick={() => scrollToSection('contact')}
+              <button
+                onClick={() => scrollToSection("contact")}
                 className="bg-transparent border border-slate-600 text-gray-200 px-8 py-4 rounded-lg font-semibold hover:text-slate-100 hover:border-slate-400 hover:bg-slate-700/30 transition-all duration-300 flex items-center"
               >
                 <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
@@ -210,7 +223,9 @@ export default function Home() {
           <div className="bg-slate-800 rounded-2xl shadow-xl p-8 md:p-12 border border-slate-700">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-slate-200 mb-2">{data.professionalSummary.stats.yearsExperience}</div>
+                <div className="text-4xl font-bold text-slate-200 mb-2">
+                  {data.professionalSummary.stats.yearsExperience}
+                </div>
                 <div className="text-slate-300">Years Experience</div>
               </div>
               <div className="text-center">
@@ -236,7 +251,9 @@ export default function Home() {
         {/* Skills */}
         <section id="skills" className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Skills & Expertise</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Skills & Expertise
+            </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
           </div>
 
@@ -250,18 +267,59 @@ export default function Home() {
           >
             <div className="bg-gradient-to-br from-blue-900/50 to-purple-900/50 rounded-3xl shadow-2xl p-8 border border-blue-500/30 backdrop-blur-sm">
               <div className="text-center mb-8">
-                <h3 className="text-3xl font-bold text-white mb-2">Core Expertise</h3>
-                <p className="text-blue-200">Primary technologies I work with daily</p>
+                <h3 className="text-3xl font-bold text-white mb-2">
+                  Core Expertise
+                </h3>
+                <p className="text-blue-200">
+                  Primary technologies I work with daily
+                </p>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
                 {[
-                  { name: 'PHP', level: 'Expert', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg', description: 'Backend development with Laravel framework' },
-                  { name: 'JavaScript', level: 'Advanced', years: '3+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', description: 'Frontend and backend JavaScript development' },
-                  { name: 'Laravel', level: 'Expert', years: '4+', logo: 'https://laravel.com/img/logomark.min.svg', description: 'Building scalable web applications and APIs' },
-                  { name: 'MySQL', level: 'Advanced', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', description: 'Database design and optimization' },
-                  { name: 'REST APIs', level: 'Expert', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg', description: 'Building and consuming RESTful web services' },
-                  { name: 'Git', level: 'Advanced', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', description: 'Version control and collaborative development' }
+                  {
+                    name: "PHP",
+                    level: "Expert",
+                    years: "4+",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+                    description: "Backend development with Laravel framework",
+                  },
+                  {
+                    name: "JavaScript",
+                    level: "Advanced",
+                    years: "3+",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+                    description: "Frontend and backend JavaScript development",
+                  },
+                  {
+                    name: "Laravel",
+                    level: "Expert",
+                    years: "4+",
+                    logo: "https://laravel.com/img/logomark.min.svg",
+                    description: "Building scalable web applications and APIs",
+                  },
+                  {
+                    name: "MySQL",
+                    level: "Advanced",
+                    years: "4+",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+                    description: "Database design and optimization",
+                  },
+                  {
+                    name: "REST APIs",
+                    level: "Expert",
+                    years: "4+",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+                    description: "Building and consuming RESTful web services",
+                  },
+                  {
+                    name: "Git",
+                    level: "Advanced",
+                    years: "4+",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+                    description:
+                      "Version control and collaborative development",
+                  },
                 ].map((skill, index) => (
                   <motion.div
                     key={skill.name}
@@ -281,42 +339,61 @@ export default function Home() {
                             className="w-10 h-10 object-contain"
                             onError={(e) => {
                               const target = e.target as HTMLImageElement;
-                              target.style.display = 'none';
+                              target.style.display = "none";
                               const parent = target.parentElement;
                               if (parent) {
-                                parent.innerHTML = `<span class="text-2xl font-bold text-blue-400">${skill.name.charAt(0)}</span>`;
+                                parent.innerHTML = `<span class="text-2xl font-bold text-blue-400">${skill.name.charAt(
+                                  0
+                                )}</span>`;
                               }
                             }}
                           />
                         </div>
-                        <h4 className="text-lg font-bold text-white mb-2">{skill.name}</h4>
+                        <h4 className="text-lg font-bold text-white mb-2">
+                          {skill.name}
+                        </h4>
                         <div className="flex items-center gap-2 mb-3">
-                          <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                            skill.level === 'Expert' ? 'bg-green-900/50 text-green-300 border border-green-500/30' :
-                            skill.level === 'Advanced' ? 'bg-blue-900/50 text-blue-300 border border-blue-500/30' :
-                            'bg-yellow-900/50 text-yellow-300 border border-yellow-500/30'
-                          }`}>
+                          <span
+                            className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                              skill.level === "Expert"
+                                ? "bg-green-900/50 text-green-300 border border-green-500/30"
+                                : skill.level === "Advanced"
+                                ? "bg-blue-900/50 text-blue-300 border border-blue-500/30"
+                                : "bg-yellow-900/50 text-yellow-300 border border-yellow-500/30"
+                            }`}
+                          >
                             {skill.level}
                           </span>
-                          <span className="text-slate-400 text-xs">{skill.years}</span>
+                          <span className="text-slate-400 text-xs">
+                            {skill.years}
+                          </span>
                         </div>
-                        
+
                         {/* Proficiency Bar */}
                         <div className="w-full bg-slate-700/50 rounded-full h-2 mb-3">
                           <motion.div
                             initial={{ width: 0 }}
-                            whileInView={{ width: skill.level === 'Expert' ? '95%' : skill.level === 'Advanced' ? '85%' : '70%' }}
+                            whileInView={{
+                              width:
+                                skill.level === "Expert"
+                                  ? "95%"
+                                  : skill.level === "Advanced"
+                                  ? "85%"
+                                  : "70%",
+                            }}
                             transition={{ duration: 1, delay: index * 0.2 }}
                             viewport={{ once: true }}
                             className={`h-2 rounded-full ${
-                              skill.level === 'Expert' ? 'bg-gradient-to-r from-green-500 to-green-400' :
-                              skill.level === 'Advanced' ? 'bg-gradient-to-r from-blue-500 to-blue-400' :
-                              'bg-gradient-to-r from-yellow-500 to-yellow-400'
+                              skill.level === "Expert"
+                                ? "bg-gradient-to-r from-green-500 to-green-400"
+                                : skill.level === "Advanced"
+                                ? "bg-gradient-to-r from-blue-500 to-blue-400"
+                                : "bg-gradient-to-r from-yellow-500 to-yellow-400"
                             }`}
                           />
                         </div>
                       </div>
-                      
+
                       {/* Tooltip */}
                       <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
                         <div className="bg-slate-900 text-white text-sm rounded-lg py-2 px-3 whitespace-nowrap border border-slate-600 shadow-xl max-w-xs">
@@ -346,12 +423,42 @@ export default function Home() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {[
-                  { name: 'Laravel', level: 'Expert', logo: 'https://laravel.com/img/logomark.min.svg', description: 'Used for CRM and e-commerce platforms' },
-                  { name: 'Next.js', level: 'Intermediate', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg', description: 'React framework for production applications' },
-                  { name: 'CodeIgniter', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg', description: 'PHP framework for rapid development' },
-                  { name: 'Node.js', level: 'Intermediate', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', description: 'Server-side JavaScript runtime' },
-                  { name: 'jQuery', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg', description: 'JavaScript library for DOM manipulation' },
-                  { name: 'React.js', level: 'Intermediate', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', description: 'Frontend JavaScript library' }
+                  {
+                    name: "Laravel",
+                    level: "Expert",
+                    logo: "https://laravel.com/img/logomark.min.svg",
+                    description: "Used for CRM and e-commerce platforms",
+                  },
+                  {
+                    name: "Next.js",
+                    level: "Intermediate",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+                    description: "React framework for production applications",
+                  },
+                  {
+                    name: "CodeIgniter",
+                    level: "Advanced",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg",
+                    description: "PHP framework for rapid development",
+                  },
+                  {
+                    name: "Node.js",
+                    level: "Intermediate",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+                    description: "Server-side JavaScript runtime",
+                  },
+                  {
+                    name: "jQuery",
+                    level: "Advanced",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg",
+                    description: "JavaScript library for DOM manipulation",
+                  },
+                  {
+                    name: "React.js",
+                    level: "Intermediate",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+                    description: "Frontend JavaScript library",
+                  },
                 ].map((skill, index) => (
                   <motion.div
                     key={skill.name}
@@ -369,22 +476,30 @@ export default function Home() {
                         className="w-5 h-5 object-contain"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
+                          target.style.display = "none";
                           const parent = target.parentElement;
                           if (parent) {
-                            parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.name.charAt(0)}</span>`;
+                            parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.name.charAt(
+                              0
+                            )}</span>`;
                           }
                         }}
                       />
                     </div>
                     <div className="flex-1">
-                      <span className="text-slate-200 text-sm font-medium">{skill.name}</span>
+                      <span className="text-slate-200 text-sm font-medium">
+                        {skill.name}
+                      </span>
                       <div className="flex items-center gap-1 mt-1">
-                        <span className={`px-2 py-0.5 rounded text-xs font-medium ${
-                          skill.level === 'Expert' ? 'bg-green-900/50 text-green-300' :
-                          skill.level === 'Advanced' ? 'bg-blue-900/50 text-blue-300' :
-                          'bg-yellow-900/50 text-yellow-300'
-                        }`}>
+                        <span
+                          className={`px-2 py-0.5 rounded text-xs font-medium ${
+                            skill.level === "Expert"
+                              ? "bg-green-900/50 text-green-300"
+                              : skill.level === "Advanced"
+                              ? "bg-blue-900/50 text-blue-300"
+                              : "bg-yellow-900/50 text-yellow-300"
+                          }`}
+                        >
                           {skill.level}
                         </span>
                       </div>
@@ -418,8 +533,18 @@ export default function Home() {
               </h3>
               <div className="grid grid-cols-1 gap-3">
                 {[
-                  { name: 'MySQL', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', description: 'Relational database management system' },
-                  { name: 'MariaDB', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', description: 'Open-source relational database' }
+                  {
+                    name: "MySQL",
+                    level: "Advanced",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+                    description: "Relational database management system",
+                  },
+                  {
+                    name: "MariaDB",
+                    level: "Advanced",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+                    description: "Open-source relational database",
+                  },
                 ].map((skill, index) => (
                   <motion.div
                     key={skill.name}
@@ -433,16 +558,20 @@ export default function Home() {
                         className="w-5 h-5 object-contain"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
+                          target.style.display = "none";
                           const parent = target.parentElement;
                           if (parent) {
-                            parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.name.charAt(0)}</span>`;
+                            parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.name.charAt(
+                              0
+                            )}</span>`;
                           }
                         }}
                       />
                     </div>
                     <div className="flex-1">
-                      <span className="text-slate-200 text-sm font-medium">{skill.name}</span>
+                      <span className="text-slate-200 text-sm font-medium">
+                        {skill.name}
+                      </span>
                       <div className="flex items-center gap-1 mt-1">
                         <span className="px-2 py-0.5 rounded text-xs font-medium bg-blue-900/50 text-blue-300">
                           {skill.level}
@@ -475,8 +604,18 @@ export default function Home() {
               </h3>
               <div className="grid grid-cols-1 gap-3">
                 {[
-                  { name: 'Git', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', description: 'Distributed version control system' },
-                  { name: 'GitHub', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', description: 'Code hosting and collaboration platform' }
+                  {
+                    name: "Git",
+                    level: "Advanced",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+                    description: "Distributed version control system",
+                  },
+                  {
+                    name: "GitHub",
+                    level: "Advanced",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+                    description: "Code hosting and collaboration platform",
+                  },
                 ].map((skill, index) => (
                   <motion.div
                     key={skill.name}
@@ -490,16 +629,20 @@ export default function Home() {
                         className="w-5 h-5 object-contain"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
+                          target.style.display = "none";
                           const parent = target.parentElement;
                           if (parent) {
-                            parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.name.charAt(0)}</span>`;
+                            parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.name.charAt(
+                              0
+                            )}</span>`;
                           }
                         }}
                       />
                     </div>
                     <div className="flex-1">
-                      <span className="text-slate-200 text-sm font-medium">{skill.name}</span>
+                      <span className="text-slate-200 text-sm font-medium">
+                        {skill.name}
+                      </span>
                       <div className="flex items-center gap-1 mt-1">
                         <span className="px-2 py-0.5 rounded text-xs font-medium bg-blue-900/50 text-blue-300">
                           {skill.level}
@@ -526,89 +669,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
             className="mt-8 grid lg:grid-cols-2 gap-8"
-          >
-            {/* Version Control */}
-            <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-slate-700/50">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-                <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                Version Control
-              </h3>
-              <div className="grid grid-cols-1 gap-3">
-                {[
-                  { name: 'GitHub', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', description: 'Code hosting and collaboration platform' }
-                ].map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    whileHover={{ scale: 1.02 }}
-                    className="group relative flex items-center bg-slate-700/50 rounded-lg p-3 hover:bg-slate-600/50 transition-all duration-300"
-                  >
-                    <div className="w-8 h-8 mr-3 flex items-center justify-center bg-slate-800/50 rounded-lg">
-                      <img
-                        src={skill.logo}
-                        alt={`${skill.name} logo`}
-                        className="w-5 h-5 object-contain"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          const parent = target.parentElement;
-                          if (parent) {
-                            parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.name.charAt(0)}</span>`;
-                          }
-                        }}
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <span className="text-slate-200 text-sm font-medium">{skill.name}</span>
-                      <div className="flex items-center gap-2 mt-1">
-                        {[...Array(3)].map((_, i) => (
-                          <div
-                            key={i}
-                            className={`w-1.5 h-1.5 rounded-full ${
-                              (skill.level === 'Advanced' && i < 3) ||
-                              (skill.level === 'Intermediate' && i < 2) ||
-                              (skill.level === 'Familiar' && i < 1)
-                                ? 'bg-orange-400'
-                                : 'bg-slate-600'
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    {/* Tooltip */}
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
-                      <div className="bg-slate-900 text-white text-xs rounded-lg py-2 px-3 whitespace-nowrap border border-slate-600 shadow-xl">
-                        {skill.description}
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-900"></div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Authentication & Security */}
-            <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-slate-700/50">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-                <span className="w-2 h-2 bg-red-500 rounded-full mr-3"></span>
-                Authentication & Security
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {['JWT', 'OAuth', 'Webhooks'].map((tech, index) => (
-                  <motion.span
-                    key={tech}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.05 }}
-                    className="px-3 py-1.5 bg-slate-700/50 text-slate-200 rounded-lg text-sm font-medium hover:bg-red-900/30 hover:text-red-300 transition-all duration-300 cursor-default border border-slate-600/30 hover:border-red-500/30"
-                  >
-                    {tech}
-                  </motion.span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+          ></motion.div>
 
           {/* API Integrations & Tools */}
           <motion.div
@@ -625,9 +686,22 @@ export default function Home() {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  'RESTful APIs', 'JWT', 'OAuth', 'Webhooks', 'Postman', 'Twilio', 'Stripe', 'PayPal', 
-                  'Google Maps', 'WhatsApp API', 'Authorize.net', 'Square', 'Trello', 'Call Centers', 
-                  'Real Call Agents', 'Unicommerce'
+                  "RESTful APIs",
+                  "JWT",
+                  "OAuth",
+                  "Webhooks",
+                  "Postman",
+                  "Twilio",
+                  "Stripe",
+                  "PayPal",
+                  "Google Maps",
+                  "WhatsApp API",
+                  "Authorize.net",
+                  "Square",
+                  "Trello",
+                  "Call Centers",
+                  "Real Call Agents",
+                  "Unicommerce",
                 ].map((api, index) => (
                   <motion.span
                     key={api}
@@ -757,7 +831,10 @@ export default function Home() {
 
           <div className="space-y-8">
             {data.education.map((edu, index) => (
-              <div key={index} className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700">
+              <div
+                key={index}
+                className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700"
+              >
                 <div className="text-center">
                   <h3 className="text-2xl font-bold text-white mb-2">
                     {edu.degree}
@@ -785,7 +862,9 @@ export default function Home() {
         {/* Certifications */}
         <section id="certifications" className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Certifications</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Certifications
+            </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
           </div>
 
@@ -825,31 +904,48 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h3 className="text-3xl font-bold text-white mb-6">{data.contact.formTitle}</h3>
+              <h3 className="text-3xl font-bold text-white mb-6">
+                {data.contact.formTitle}
+              </h3>
               <p className="text-slate-300 leading-relaxed mb-8">
                 {data.contact.formDescription}
               </p>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <FontAwesomeIcon icon={faEnvelope} className="text-slate-400 text-xl mr-4" />
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    className="text-slate-400 text-xl mr-4"
+                  />
                   <div>
                     <div className="text-white font-semibold">Email</div>
-                    <div className="text-slate-300">{data.personalInfo.email}</div>
+                    <div className="text-slate-300">
+                      {data.personalInfo.email}
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <FontAwesomeIcon icon={faPhone} className="text-slate-400 text-xl mr-4" />
+                  <FontAwesomeIcon
+                    icon={faPhone}
+                    className="text-slate-400 text-xl mr-4"
+                  />
                   <div>
                     <div className="text-white font-semibold">Phone</div>
-                    <div className="text-slate-300">{data.personalInfo.phone}</div>
+                    <div className="text-slate-300">
+                      {data.personalInfo.phone}
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <FontAwesomeIcon icon={faLocationDot} className="text-slate-400 text-xl mr-4" />
+                  <FontAwesomeIcon
+                    icon={faLocationDot}
+                    className="text-slate-400 text-xl mr-4"
+                  />
                   <div>
                     <div className="text-white font-semibold">Location</div>
-                    <div className="text-slate-300">{data.personalInfo.location}</div>
+                    <div className="text-slate-300">
+                      {data.personalInfo.location}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -857,11 +953,16 @@ export default function Home() {
 
             {/* Contact Form */}
             <div>
-              <h3 className="text-3xl font-bold text-white mb-6">{data.contact.messageTitle}</h3>
+              <h3 className="text-3xl font-bold text-white mb-6">
+                {data.contact.messageTitle}
+              </h3>
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-slate-300 mb-2"
+                    >
                       Name
                     </label>
                     <input
@@ -874,7 +975,10 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-slate-300 mb-2"
+                    >
                       Email
                     </label>
                     <input
@@ -888,7 +992,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-slate-300 mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-slate-300 mb-2"
+                  >
                     Subject
                   </label>
                   <input
@@ -901,7 +1008,10 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-slate-300 mb-2"
+                  >
                     Message
                   </label>
                   <textarea
@@ -926,17 +1036,15 @@ export default function Home() {
 
           {/* Footer Bottom */}
           <div className="border-t border-slate-700 mt-12 pt-8 text-center">
-            <p className="text-slate-400">
-              {data.footer.copyright}
-            </p>
+            <p className="text-slate-400">{data.footer.copyright}</p>
           </div>
         </div>
       </footer>
 
       {/* Fixed WhatsApp Button */}
-      <a 
+      <a
         href={`https://wa.me/${data.personalInfo.whatsappNumber}`}
-        target="_blank" 
+        target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:shadow-green-500/25 transition-all duration-300 z-50 group hover:scale-110"
         aria-label="Contact via WhatsApp"
