@@ -20,10 +20,25 @@ export interface ProfessionalSummary {
   };
 }
 
+export interface ApiIntegration {
+  name: string;
+  description: string;
+  logo: string;
+}
+
+export interface ZohoProduct {
+  name: string;
+  description: string;
+  logo: string;
+}
+
 export interface Skills {
+  coreExpertise: string[];
   technical: {
     [category: string]: string[];
   };
+  apiIntegrations: ApiIntegration[];
+  zohoExperience: ZohoProduct[];
   other: {
     [category: string]: string[];
   };

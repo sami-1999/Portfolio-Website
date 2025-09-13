@@ -20,27 +20,115 @@
     }
   },
   "skills": {
+    "coreExpertise": [
+      "PHP",
+      "JavaScript", 
+      "Laravel",
+      "MySQL",
+      "REST APIs",
+      "Git"
+    ],
     "technical": {
       "Programming Languages": ["PHP", "JavaScript"],
       "Frameworks": ["Laravel", "CodeIgniter", "Node.js", "jQuery", "React.js", "Next.js"],
       "Databases": ["MySQL", "MariaDB"],
-      "Version Control": ["Git", "GitHub"],
-      "API Integrations": [
-        "Retell AI (Voice Agent)",
-        "Cal.com",
-        "Stripe",
-        "PayPal",
-        "Twilio",
-        "Google Maps",
-        "Wazzup",
-        "Umnico(meta)",
-        "Authorize.net",
-        "Square"
-      ],
-      "Other": ["RESTful APIs", "JWT", "OAuth", "Webhooks"]
+      "Version Control": ["Git", "GitHub"]
     },
+    "apiIntegrations": [
+      {
+        "name": "Retell AI",
+        "description": "Voice Agent",
+        "logo": "https://assets-global.website-files.com/64f6f2c0e3f4c5a91c1e6bfb/64f6f2c0e3f4c5a91c1e6c0a_retell-favicon.png"
+      },
+      {
+        "name": "Cal.com",
+        "description": "Scheduling Platform",
+        "logo": "https://cal.com/logo-white.svg"
+      },
+      {
+        "name": "Stripe",
+        "description": "Payment Processing",
+        "logo": "https://images.ctfassets.net/fzn2n1nzq965/HTTOloNPhisV9P4hlMPNA/cacf1bb88b9fc492dfad34378d844280/Stripe_icon_-_square.svg"
+      },
+      {
+        "name": "PayPal",
+        "description": "Payment Gateway",
+        "logo": "https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png"
+      },
+      {
+        "name": "Twilio",
+        "description": "Communication APIs",
+        "logo": "https://www.twilio.com/content/dam/twilio-com/global/en/other/brand-logos/svg/twilio-logo-red.svg"
+      },
+      {
+        "name": "Google Maps",
+        "description": "Maps & Location Services",
+        "logo": "https://developers.google.com/static/maps/images/maps-icon.svg"
+      },
+      {
+        "name": "Wazzup",
+        "description": "WhatsApp Business API",
+        "logo": "https://wazzup24.com/img/logo.svg"
+      },
+      {
+        "name": "Umnico",
+        "description": "Meta Business Integration",
+        "logo": "https://umnico.com/static/img/logo.svg"
+      },
+      {
+        "name": "Authorize.net",
+        "description": "Payment Gateway",
+        "logo": "https://www.authorize.net/content/dam/anet-redesign/logos/anet-logo-blue.svg"
+      },
+      {
+        "name": "Square",
+        "description": "Payment Processing",
+        "logo": "https://cdn.worldvectorlogo.com/logos/square-1.svg"
+      },
+      {
+        "name": "RESTful APIs",
+        "description": "Web Service Architecture",
+        "logo": "https://cdn.worldvectorlogo.com/logos/rest-api.svg"
+      },
+      {
+        "name": "JWT",
+        "description": "JSON Web Tokens",
+        "logo": "https://jwt.io/img/pic_logo.svg"
+      },
+      {
+        "name": "OAuth",
+        "description": "Authorization Framework",
+        "logo": "https://oauth.net/images/oauth-logo-square.png"
+      },
+      {
+        "name": "Webhooks",
+        "description": "Real-time Data Transfer",
+        "logo": "https://cdn.worldvectorlogo.com/logos/webhook.svg"
+      }
+    ],
+    "zohoExperience": [
+      {
+        "name": "Zoho CRM",
+        "description": "Customer Relationship Management",
+        "logo": "https://www.zoho.com/crm/help/images/crm-logo.svg"
+      },
+      {
+        "name": "Zoho Creator",
+        "description": "Low-Code Application Development",
+        "logo": "https://www.zoho.com/creator/help/images/creator-logo.svg"
+      },
+      {
+        "name": "Zoho Sites",
+        "description": "Website Builder Platform",
+        "logo": "https://www.zoho.com/sites/help/images/sites-logo.svg"
+      },
+      {
+        "name": "Deluge",
+        "description": "Zoho's Scripting Language",
+        "logo": "https://www.zoho.com/deluge/help/images/deluge-logo.svg"
+      }
+    ],
     "other": {
-      "CRM Tools": ["Zoho CRM"],
       "Collaboration": ["Slack", "Microsoft Teams"],
       "Project Management Tools": ["Jira", "Trello"],
       "Soft Skills": ["Observation", "Decision making", "Communication", "Multi-tasking"]
