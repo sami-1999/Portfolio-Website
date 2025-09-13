@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faEnvelope, 
@@ -235,81 +236,414 @@ export default function Home() {
         {/* Skills */}
         <section id="skills" className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Skills</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Skills & Expertise</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid gap-8">
-            {/* Technical Skills - Single Card */}
-            <div className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Technical Skills
+          {/* Core Skills - Highlighted Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <div className="bg-gradient-to-br from-blue-900/50 to-purple-900/50 rounded-3xl shadow-2xl p-8 border border-blue-500/30 backdrop-blur-sm">
+              <div className="text-center mb-8">
+                <h3 className="text-3xl font-bold text-white mb-2">Core Expertise</h3>
+                <p className="text-blue-200">Primary technologies I work with daily</p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+                {[
+                  { name: 'PHP', level: 'Expert', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg', description: 'Backend development with Laravel framework' },
+                  { name: 'JavaScript', level: 'Advanced', years: '3+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', description: 'Frontend and backend JavaScript development' },
+                  { name: 'Laravel', level: 'Expert', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg', description: 'Building scalable web applications and APIs' },
+                  { name: 'MySQL', level: 'Advanced', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', description: 'Database design and optimization' },
+                  { name: 'REST APIs', level: 'Expert', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg', description: 'Building and consuming RESTful web services' },
+                  { name: 'Git', level: 'Advanced', years: '4+', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', description: 'Version control and collaborative development' }
+                ].map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="group relative"
+                  >
+                    <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-600/50 hover:border-blue-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20">
+                      <div className="flex flex-col items-center text-center">
+                        <div className="w-16 h-16 mb-4 flex items-center justify-center bg-slate-700/50 rounded-xl border border-slate-600/30">
+                          <img
+                            src={skill.logo}
+                            alt={`${skill.name} logo`}
+                            className="w-10 h-10 object-contain"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'none';
+                              const parent = target.parentElement;
+                              if (parent) {
+                                parent.innerHTML = `<span class="text-2xl font-bold text-blue-400">${skill.name.charAt(0)}</span>`;
+                              }
+                            }}
+                          />
+                        </div>
+                        <h4 className="text-lg font-bold text-white mb-2">{skill.name}</h4>
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                            skill.level === 'Expert' ? 'bg-green-900/50 text-green-300 border border-green-500/30' :
+                            skill.level === 'Advanced' ? 'bg-blue-900/50 text-blue-300 border border-blue-500/30' :
+                            'bg-yellow-900/50 text-yellow-300 border border-yellow-500/30'
+                          }`}>
+                            {skill.level}
+                          </span>
+                          <span className="text-slate-400 text-xs">{skill.years}</span>
+                        </div>
+                        
+                        {/* Proficiency Bar */}
+                        <div className="w-full bg-slate-700/50 rounded-full h-2 mb-3">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: skill.level === 'Expert' ? '95%' : skill.level === 'Advanced' ? '85%' : '70%' }}
+                            transition={{ duration: 1, delay: index * 0.2 }}
+                            viewport={{ once: true }}
+                            className={`h-2 rounded-full ${
+                              skill.level === 'Expert' ? 'bg-gradient-to-r from-green-500 to-green-400' :
+                              skill.level === 'Advanced' ? 'bg-gradient-to-r from-blue-500 to-blue-400' :
+                              'bg-gradient-to-r from-yellow-500 to-yellow-400'
+                            }`}
+                          />
+                        </div>
+                      </div>
+                      
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+                        <div className="bg-slate-900 text-white text-sm rounded-lg py-2 px-3 whitespace-nowrap border border-slate-600 shadow-xl max-w-xs">
+                          {skill.description}
+                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-900"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Frameworks & Libraries - Full Width with 2 Columns */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-8"
+          >
+            <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-slate-700/50">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                Frameworks & Libraries
               </h3>
-              <div className="grid gap-6">
-                {Object.entries(data.skills.technical).map(
-                  ([category, skills], index) => (
-                    <div key={index}>
-                      <h4 className="text-lg font-semibold text-slate-300 mb-3">
-                        {category}
-                      </h4>
-                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-                        {skills.map((skill, skillIndex) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {[
+                  { name: 'Laravel', level: 'Expert', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg', description: 'Used for CRM and e-commerce platforms' },
+                  { name: 'Next.js', level: 'Intermediate', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg', description: 'React framework for production applications' },
+                  { name: 'CodeIgniter', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg', description: 'PHP framework for rapid development' },
+                  { name: 'Node.js', level: 'Intermediate', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', description: 'Server-side JavaScript runtime' },
+                  { name: 'jQuery', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg', description: 'JavaScript library for DOM manipulation' },
+                  { name: 'React.js', level: 'Intermediate', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', description: 'Frontend JavaScript library' }
+                ].map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.02 }}
+                    className="group relative flex items-center bg-slate-700/50 rounded-lg p-3 hover:bg-slate-600/50 transition-all duration-300"
+                  >
+                    <div className="w-8 h-8 mr-3 flex items-center justify-center bg-slate-800/50 rounded-lg">
+                      <img
+                        src={skill.logo}
+                        alt={`${skill.name} logo`}
+                        className="w-5 h-5 object-contain"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent) {
+                            parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.name.charAt(0)}</span>`;
+                          }
+                        }}
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-slate-200 text-sm font-medium">{skill.name}</span>
+                      <div className="flex items-center gap-1 mt-1">
+                        <span className={`px-2 py-0.5 rounded text-xs font-medium ${
+                          skill.level === 'Expert' ? 'bg-green-900/50 text-green-300' :
+                          skill.level === 'Advanced' ? 'bg-blue-900/50 text-blue-300' :
+                          'bg-yellow-900/50 text-yellow-300'
+                        }`}>
+                          {skill.level}
+                        </span>
+                      </div>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+                      <div className="bg-slate-900 text-white text-xs rounded-lg py-2 px-3 whitespace-nowrap border border-slate-600 shadow-xl">
+                        {skill.name} → {skill.description}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-900"></div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Secondary Skills Grid */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-8">
+            {/* Databases */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-slate-700/50"
+            >
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                Databases
+              </h3>
+              <div className="grid grid-cols-1 gap-3">
+                {[
+                  { name: 'MySQL', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', description: 'Relational database management system' },
+                  { name: 'MariaDB', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', description: 'Open-source relational database' }
+                ].map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    whileHover={{ scale: 1.02 }}
+                    className="group relative flex items-center bg-slate-700/50 rounded-lg p-3 hover:bg-slate-600/50 transition-all duration-300"
+                  >
+                    <div className="w-8 h-8 mr-3 flex items-center justify-center bg-slate-800/50 rounded-lg">
+                      <img
+                        src={skill.logo}
+                        alt={`${skill.name} logo`}
+                        className="w-5 h-5 object-contain"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent) {
+                            parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.name.charAt(0)}</span>`;
+                          }
+                        }}
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-slate-200 text-sm font-medium">{skill.name}</span>
+                      <div className="flex items-center gap-1 mt-1">
+                        <span className="px-2 py-0.5 rounded text-xs font-medium bg-blue-900/50 text-blue-300">
+                          {skill.level}
+                        </span>
+                      </div>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+                      <div className="bg-slate-900 text-white text-xs rounded-lg py-2 px-3 whitespace-nowrap border border-slate-600 shadow-xl">
+                        {skill.name} → {skill.description}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-900"></div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Version Control */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-slate-700/50"
+            >
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+                Version Control
+              </h3>
+              <div className="grid grid-cols-1 gap-3">
+                {[
+                  { name: 'Git', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', description: 'Distributed version control system' },
+                  { name: 'GitHub', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', description: 'Code hosting and collaboration platform' }
+                ].map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    whileHover={{ scale: 1.02 }}
+                    className="group relative flex items-center bg-slate-700/50 rounded-lg p-3 hover:bg-slate-600/50 transition-all duration-300"
+                  >
+                    <div className="w-8 h-8 mr-3 flex items-center justify-center bg-slate-800/50 rounded-lg">
+                      <img
+                        src={skill.logo}
+                        alt={`${skill.name} logo`}
+                        className="w-5 h-5 object-contain"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent) {
+                            parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.name.charAt(0)}</span>`;
+                          }
+                        }}
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-slate-200 text-sm font-medium">{skill.name}</span>
+                      <div className="flex items-center gap-1 mt-1">
+                        <span className="px-2 py-0.5 rounded text-xs font-medium bg-blue-900/50 text-blue-300">
+                          {skill.level}
+                        </span>
+                      </div>
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+                      <div className="bg-slate-900 text-white text-xs rounded-lg py-2 px-3 whitespace-nowrap border border-slate-600 shadow-xl">
+                        {skill.name} → {skill.description}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-900"></div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Version Control & API Integrations */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mt-8 grid lg:grid-cols-2 gap-8"
+          >
+            {/* Version Control */}
+            <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-slate-700/50">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+                Version Control
+              </h3>
+              <div className="grid grid-cols-1 gap-3">
+                {[
+                  { name: 'GitHub', level: 'Advanced', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', description: 'Code hosting and collaboration platform' }
+                ].map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    whileHover={{ scale: 1.02 }}
+                    className="group relative flex items-center bg-slate-700/50 rounded-lg p-3 hover:bg-slate-600/50 transition-all duration-300"
+                  >
+                    <div className="w-8 h-8 mr-3 flex items-center justify-center bg-slate-800/50 rounded-lg">
+                      <img
+                        src={skill.logo}
+                        alt={`${skill.name} logo`}
+                        className="w-5 h-5 object-contain"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent) {
+                            parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.name.charAt(0)}</span>`;
+                          }
+                        }}
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-slate-200 text-sm font-medium">{skill.name}</span>
+                      <div className="flex items-center gap-2 mt-1">
+                        {[...Array(3)].map((_, i) => (
                           <div
-                            key={skillIndex}
-                            className="flex items-center bg-slate-700 rounded-lg p-3 hover:bg-slate-600 transition-colors duration-300"
-                          >
-                            <div className="w-8 h-8 mr-3 flex items-center justify-center bg-slate-800 rounded-lg shadow-sm">
-                              <span className="text-xs font-bold text-slate-400">
-                                {skill.charAt(0)}
-                              </span>
-                            </div>
-                            <span className="text-slate-300 text-sm font-medium">
-                              {skill}
-                            </span>
-                          </div>
+                            key={i}
+                            className={`w-1.5 h-1.5 rounded-full ${
+                              (skill.level === 'Advanced' && i < 3) ||
+                              (skill.level === 'Intermediate' && i < 2) ||
+                              (skill.level === 'Familiar' && i < 1)
+                                ? 'bg-orange-400'
+                                : 'bg-slate-600'
+                            }`}
+                          />
                         ))}
                       </div>
                     </div>
-                  )
-                )}
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+                      <div className="bg-slate-900 text-white text-xs rounded-lg py-2 px-3 whitespace-nowrap border border-slate-600 shadow-xl">
+                        {skill.description}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-900"></div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
 
-            {/* Other Skills */}
-            <div className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Other Skills
+            {/* Authentication & Security */}
+            <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-slate-700/50">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                <span className="w-2 h-2 bg-red-500 rounded-full mr-3"></span>
+                Authentication & Security
               </h3>
-              <div className="grid gap-6">
-                {Object.entries(data.skills.other).map(
-                  ([category, skills], index) => (
-                    <div key={index}>
-                      <h4 className="text-lg font-semibold text-slate-300 mb-3">
-                        {category}
-                      </h4>
-                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-                        {skills.map((skill, skillIndex) => (
-                          <div
-                            key={skillIndex}
-                            className="flex items-center bg-slate-700 rounded-lg p-3 hover:bg-slate-600 transition-colors duration-300"
-                          >
-                            <div className="w-8 h-8 mr-3 flex items-center justify-center bg-slate-800 rounded-lg shadow-sm">
-                              <span className="text-xs font-bold text-purple-400">
-                                {skill.charAt(0)}
-                              </span>
-                            </div>
-                            <span className="text-slate-300 text-sm font-medium">
-                              {skill}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )
-                )}
+              <div className="flex flex-wrap gap-2">
+                {['JWT', 'OAuth', 'Webhooks'].map((tech, index) => (
+                  <motion.span
+                    key={tech}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05 }}
+                    className="px-3 py-1.5 bg-slate-700/50 text-slate-200 rounded-lg text-sm font-medium hover:bg-red-900/30 hover:text-red-300 transition-all duration-300 cursor-default border border-slate-600/30 hover:border-red-500/30"
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
               </div>
             </div>
-          </div>
+          </motion.div>
+
+          {/* API Integrations & Tools */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-8"
+          >
+            <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-slate-700/50">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                API Integrations & Tools
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  'RESTful APIs', 'JWT', 'OAuth', 'Webhooks', 'Postman', 'Twilio', 'Stripe', 'PayPal', 
+                  'Google Maps', 'WhatsApp API', 'Authorize.net', 'Square', 'Trello', 'Call Centers', 
+                  'Real Call Agents', 'Unicommerce'
+                ].map((api, index) => (
+                  <motion.span
+                    key={api}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: index * 0.03 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05 }}
+                    className="px-3 py-1.5 bg-slate-700/50 text-slate-200 rounded-lg text-sm font-medium hover:bg-green-900/30 hover:text-green-300 transition-all duration-300 cursor-default border border-slate-600/30 hover:border-green-500/30"
+                  >
+                    {api}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </section>
 
         {/* Experience */}
