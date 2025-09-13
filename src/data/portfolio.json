@@ -24,7 +24,7 @@
   "skills": {
     "coreExpertise": [
       "PHP",
-      "JavaScript", 
+      "JavaScript",
       "Laravel",
       "MySQL",
       "REST APIs",
@@ -32,7 +32,14 @@
     ],
     "technical": {
       "Programming Languages": ["PHP", "JavaScript"],
-      "Frameworks": ["Laravel", "CodeIgniter", "Node.js", "jQuery", "React.js", "Next.js"],
+      "Frameworks": [
+        "Laravel",
+        "CodeIgniter",
+        "Node.js",
+        "jQuery",
+        "React.js",
+        "Next.js"
+      ],
       "Databases": ["MySQL", "MariaDB", "MongoDB"],
       "Version Control": ["Git", "GitHub"]
     },
@@ -123,7 +130,12 @@
     "other": {
       "Collaboration": ["Slack", "Microsoft Teams"],
       "Project Management Tools": ["Jira", "Trello"],
-      "Soft Skills": ["Observation", "Decision making", "Communication", "Multi-tasking"]
+      "Soft Skills": [
+        "Observation",
+        "Decision making",
+        "Communication",
+        "Multi-tasking"
+      ]
     }
   },
   "experience": [
@@ -223,7 +235,16 @@
     "messageTitle": "Send Message"
   },
   "footer": {
-    "copyright": "© 2024 Muhammad Sami. All rights reserved. Built with Next.js and Tailwind CSS."
+    "copyright": "© 2025 Muhammad Sami. All rights reserved. Built with Next.js and Tailwind CSS."
   },
-  "navigation": ["Home", "Summary", "Skills", "Experience", "Projects", "Education", "Certifications", "Get in Touch"]
+  "navigation": [
+    "Home",
+    "Summary",
+    "Skills",
+    "Experience",
+    "Projects",
+    "Education",
+    "Certifications",
+    "Get in Touch"
+  ]
 }

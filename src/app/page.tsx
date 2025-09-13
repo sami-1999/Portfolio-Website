@@ -35,28 +35,27 @@ export default function Home() {
         return;
       }
 
-      // Get all sections
+      // Get all sections with their corresponding navigation names
       const sections = [
-        "summary",
-        "skills",
-        "experience",
-        "projects",
-        "education",
-        "certifications",
-        "contact",
+        { id: "summary", nav: "summary" },
+        { id: "skills", nav: "skills" },
+        { id: "experience", nav: "experience" },
+        { id: "projects", nav: "projects" },
+        { id: "education", nav: "education" },
+        { id: "certifications", nav: "certifications" },
+        { id: "contact", nav: "get in touch" },
       ];
-      const scrollPosition = window.scrollY + 100; // Offset for navbar
+      
+      const scrollPosition = window.scrollY + 150; // Offset for navbar
 
-      // Find which section is currently in view
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
+      // Find which section is currently in view (iterate in reverse to prioritize lower sections)
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        const element = document.getElementById(section.id);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(sectionId);
+          const { offsetTop } = element;
+          if (scrollPosition >= offsetTop) {
+            setActiveSection(section.nav);
             break;
           }
         }
@@ -111,8 +110,7 @@ export default function Home() {
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
                   className={`px-4 py-2 rounded-lg transition-all duration-300 bg-transparent ${
-                    activeSection === item.toLowerCase() ||
-                    (activeSection === "contact" && item === "Get in Touch")
+                    activeSection === item.toLowerCase()
                       ? "text-slate-100 border border-slate-400 bg-slate-700/30"
                       : "text-slate-300 hover:text-slate-100 hover:border hover:border-slate-400/50"
                   }`}
