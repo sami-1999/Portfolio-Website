@@ -14,7 +14,11 @@ import {
   faBuilding,
   faCalendarDays,
 } from "@fortawesome/free-solid-svg-icons";
-import { faWhatsapp, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import {
+  faWhatsapp,
+  faGithub,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 import portfolioData from "../data/portfolio.json";
 import { PortfolioData } from "../types/portfolio";
 
@@ -24,12 +28,76 @@ const data: PortfolioData = portfolioData as PortfolioData;
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const responseData = await res.json();
+
+      if (res.ok) {
+        setSubmitStatus({
+          type: "success",
+          message: responseData.message || "Message sent successfully!",
+        });
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message:
+            responseData.error || "Failed to send message. Please try again.",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "Network error. Please check your connection and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Check if we're at the top of the page (Home section)
       if (window.scrollY < 100) {
         setActiveSection("home");
         return;
@@ -45,7 +113,7 @@ export default function Home() {
         { id: "certifications", nav: "certifications" },
         { id: "contact", nav: "get in touch" },
       ];
-      
+
       const scrollPosition = window.scrollY + 150; // Offset for navbar
 
       // Find which section is currently in view (iterate in reverse to prioritize lower sections)
@@ -290,12 +358,15 @@ export default function Home() {
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                 {data.skills.coreExpertise.map((skill, index) => {
                   const skillLogos: { [key: string]: string } = {
-                    "PHP": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
-                    "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-                    "Laravel": "https://laravel.com/img/logomark.min.svg",
-                    "MySQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-                    "REST APIs": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
-                    "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                    PHP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+                    JavaScript:
+                      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+                    Laravel: "https://laravel.com/img/logomark.min.svg",
+                    MySQL:
+                      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+                    "REST APIs":
+                      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+                    Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
                   };
 
                   return (
@@ -320,7 +391,9 @@ export default function Home() {
                                 target.style.display = "none";
                                 const parent = target.parentElement;
                                 if (parent) {
-                                  parent.innerHTML = `<span class="text-2xl font-bold text-blue-400">${skill.charAt(0)}</span>`;
+                                  parent.innerHTML = `<span class="text-2xl font-bold text-blue-400">${skill.charAt(
+                                    0
+                                  )}</span>`;
                                 }
                               }}
                             />
@@ -339,74 +412,90 @@ export default function Home() {
 
           {/* Technical Skills Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            {Object.entries(data.skills.technical).map(([category, skills], categoryIndex) => {
-              // Define logos for technical skills
-              const techLogos: { [key: string]: string } = {
-                // Programming Languages
-                "PHP": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
-                "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-                
-                // Frameworks
-                "Laravel": "https://laravel.com/img/logomark.min.svg",
-                "CodeIgniter": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg",
-                "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-                "jQuery": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg",
-                "React.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-                "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-                
-                // Databases
-                "MySQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-                "MariaDB": "https://cdn.worldvectorlogo.com/logos/mariadb.svg",
-                "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-                
-                // Version Control
-                "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-                "GitHub": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-              };
+            {Object.entries(data.skills.technical).map(
+              ([category, skills], categoryIndex) => {
+                // Define logos for technical skills
+                const techLogos: { [key: string]: string } = {
+                  // Programming Languages
+                  PHP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+                  JavaScript:
+                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
 
-              return (
-                <motion.div
-                  key={category}
-                  initial={{ opacity: 0, x: categoryIndex % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-slate-700/50"
-                >
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                    {category}
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {skills.map((skill, index) => (
-                      <div
-                        key={skill}
-                        className="flex items-center bg-slate-700/50 rounded-lg p-3 hover:bg-slate-600/50 transition-all duration-300"
-                      >
-                        <div className="w-8 h-8 mr-3 flex items-center justify-center bg-slate-800/50 rounded-lg">
-                          <img
-                            src={techLogos[skill]}
-                            alt={`${skill} logo`}
-                            className="w-5 h-5 object-contain"
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.style.display = "none";
-                              const parent = target.parentElement;
-                              if (parent) {
-                                parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.charAt(0)}</span>`;
-                              }
-                            }}
-                          />
+                  // Frameworks
+                  Laravel: "https://laravel.com/img/logomark.min.svg",
+                  CodeIgniter:
+                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg",
+                  "Node.js":
+                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+                  jQuery:
+                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg",
+                  "React.js":
+                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+                  "Next.js":
+                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+
+                  // Databases
+                  MySQL:
+                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+                  MariaDB: "https://cdn.worldvectorlogo.com/logos/mariadb.svg",
+                  MongoDB:
+                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+
+                  // Version Control
+                  Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+                  GitHub:
+                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+                };
+
+                return (
+                  <motion.div
+                    key={category}
+                    initial={{
+                      opacity: 0,
+                      x: categoryIndex % 2 === 0 ? -20 : 20,
+                    }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-slate-700/50"
+                  >
+                    <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                      {category}
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {skills.map((skill, index) => (
+                        <div
+                          key={skill}
+                          className="flex items-center bg-slate-700/50 rounded-lg p-3 hover:bg-slate-600/50 transition-all duration-300"
+                        >
+                          <div className="w-8 h-8 mr-3 flex items-center justify-center bg-slate-800/50 rounded-lg">
+                            <img
+                              src={techLogos[skill]}
+                              alt={`${skill} logo`}
+                              className="w-5 h-5 object-contain"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = "none";
+                                const parent = target.parentElement;
+                                if (parent) {
+                                  parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.charAt(
+                                    0
+                                  )}</span>`;
+                                }
+                              }}
+                            />
+                          </div>
+                          <span className="text-slate-200 text-sm font-medium">
+                            {skill}
+                          </span>
                         </div>
-                        <span className="text-slate-200 text-sm font-medium">
-                          {skill}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              );
-            })}
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+              }
+            )}
           </div>
 
           {/* API Integrations Section */}
@@ -445,7 +534,9 @@ export default function Home() {
                               target.style.display = "none";
                               const parent = target.parentElement;
                               if (parent) {
-                                parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${api.name.charAt(0)}</span>`;
+                                parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${api.name.charAt(
+                                  0
+                                )}</span>`;
                               }
                             }}
                           />
@@ -478,7 +569,8 @@ export default function Home() {
                 Zoho Experience
               </h3>
               <p className="text-slate-300 mb-6">
-                Experienced with Zoho Products and their scripting language Deluge
+                Experienced with Zoho Products and their scripting language
+                Deluge
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {data.skills.zohoExperience.map((zoho, index) => (
@@ -503,7 +595,9 @@ export default function Home() {
                               target.style.display = "none";
                               const parent = target.parentElement;
                               if (parent) {
-                                parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${zoho.name.charAt(0)}</span>`;
+                                parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${zoho.name.charAt(
+                                  0
+                                )}</span>`;
                               }
                             }}
                           />
@@ -793,7 +887,22 @@ export default function Home() {
               <h3 className="text-3xl font-bold text-white mb-6">
                 {data.contact.messageTitle}
               </h3>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Status Messages */}
+                {submitStatus.type && (
+                  <div
+                    className={`p-4 rounded-lg border ${
+                      submitStatus.type === "success"
+                        ? "bg-green-900/20 border-green-500/30 text-green-300"
+                        : "bg-red-900/20 border-red-500/30 text-red-300"
+                    }`}
+                  >
+                    <p className="text-sm font-medium">
+                      {submitStatus.message}
+                    </p>
+                  </div>
+                )}
+
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label
@@ -806,8 +915,11 @@ export default function Home() {
                       type="text"
                       id="name"
                       name="name"
+                      value={formData.name}
                       className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors duration-300"
                       placeholder="Your Name"
+                      onChange={handleChange}
+                      disabled={isSubmitting}
                       required
                     />
                   </div>
@@ -822,8 +934,11 @@ export default function Home() {
                       type="email"
                       id="email"
                       name="email"
+                      value={formData.email}
                       className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors duration-300"
                       placeholder="your.email@example.com"
+                      onChange={handleChange}
+                      disabled={isSubmitting}
                       required
                     />
                   </div>
@@ -839,8 +954,11 @@ export default function Home() {
                     type="text"
                     id="subject"
                     name="subject"
+                    value={formData.subject}
                     className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors duration-300"
                     placeholder="Project Inquiry"
+                    onChange={handleChange}
+                    disabled={isSubmitting}
                     required
                   />
                 </div>
@@ -855,17 +973,28 @@ export default function Home() {
                     id="message"
                     name="message"
                     rows={6}
+                    value={formData.message}
                     className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors duration-300 resize-none"
                     placeholder="Tell me about your project..."
+                    onChange={handleChange}
+                    disabled={isSubmitting}
                     required
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-transparent border border-slate-600 text-slate-300 font-semibold py-3 px-6 rounded-lg hover:text-blue-400 hover:border-blue-400/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-800 flex items-center justify-center"
+                  disabled={isSubmitting}
+                  className={`w-full font-semibold py-3 px-6 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-800 flex items-center justify-center ${
+                    isSubmitting
+                      ? "bg-slate-700 border border-slate-600 text-slate-500 cursor-not-allowed"
+                      : "bg-transparent border border-slate-600 text-slate-300 hover:text-blue-400 hover:border-blue-400/50"
+                  }`}
                 >
-                  <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
-                  Send Message
+                  <FontAwesomeIcon
+                    icon={faPaperPlane}
+                    className={`mr-2 ${isSubmitting ? "animate-pulse" : ""}`}
+                  />
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </div>
