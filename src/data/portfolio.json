@@ -1,22 +1,25 @@
 {
   "personalInfo": {
     "name": "MUHAMMAD SAMI",
-    "title": "Software Engineer | Laravel | Node.js",
-    "subtitle": "Backend Developer",
+    "title": "Senior Software Engineer",
+    "subtitle": "Full-Stack Developer & API Specialist",
     "email": "mohammadsami501@gmail.com",
-    "phone": "+923132835015",
-    "location": "Pakistan",
+    "phone": "+92 3132835015",
+    "location": "Karachi, Pakistan",
     "profileName": "Muhammad Sami",
     "avatar": "/avatar-main.png",
     "whatsappNumber": "923132835015",
     "resumePath": "/Muhammad Sami Resume.pdf",
     "github": "https://github.com/sami-1999",
-    "linkedin": "https://linkedin.com/in/muhammad-sami-dev"
+    "githubUsername": "sami-1999",
+    "linkedin": "https://linkedin.com/in/muhammad-sami-dev",
+    "website": "muhammadsamidev.vercel.app",
+    "portfolio": "https://muhammadsamidev.vercel.app"
   },
   "professionalSummary": {
-    "text": "Backend Developer with 4+ years of experience building secure and scalable applications using PHP (Laravel). Skilled in RESTful API design, MySQL/MongoDB query optimization, and proficient in Node.js with working knowledge of React.js & Next.js. Strong focus on clean architecture, performance optimization, and modern development practices with growing full-stack expertise.",
+    "text": "Software Engineer with 5 years of experience building CRM, ERP, and RESTful APIs using Laravel. Developed an API CRUD Generator, reducing development time by 50%, Skilled in integrating AI-powered workflows with OpenAI, Retell AI, and n8n to automate & optimize business processes.",
     "stats": {
-      "yearsExperience": "4+",
+      "yearsExperience": "5",
       "projectsCompleted": "50+",
       "apiIntegrations": "15+"
     }
@@ -24,24 +27,31 @@
   "skills": {
     "coreExpertise": [
       "PHP",
-      "JavaScript",
+      "JavaScript (ES6)",
+      "TypeScript",
       "Laravel",
+      "React.js",
+      "Next.js",
       "MySQL",
       "REST APIs",
       "Git"
     ],
     "technical": {
-      "Programming Languages": ["PHP", "JavaScript"],
-      "Frameworks": [
+      "Programming Languages": ["PHP", "JavaScript (ES6)", "TypeScript", "Deluge"],
+      "Frameworks & Libraries": [
         "Laravel",
-        "CodeIgniter",
+        "CodeIgniter", 
         "Node.js",
-        "jQuery",
         "React.js",
-        "Next.js"
+        "Next.js",
+        "Zoho Apps"
       ],
-      "Databases": ["MySQL", "MariaDB", "MongoDB"],
-      "Version Control": ["Git", "GitHub"]
+      "Databases": ["MySQL", "Redis", "PostgreSQL", "MongoDB", "SQLite"],
+      "Cloud & DevOps": ["Docker", "Supabase", "CI/CD Pipelines", "Github Actions"],
+      "Packages": ["Sanctum", "Passport", "Spatie", "Telescope", "Pint", "PHPStan", "Pest V4", "Cashier", "Laravel Debugbar", "Socialite"],
+      "Development Best Practices": ["Agile", "Scrum", "Sprint Planning", "Code Reviews/Optimizations"],
+      "API Integrations": ["Retell AI (Voice Agent)", "Cal.com", "Stripe", "PayPal", "Authorize.net", "Square", "Twilio", "Google Maps", "Wazzup", "Umnico(meta)", "USP Shipping API"],
+      "Development Tools": ["Git", "Postman", "n8n", "Claude Code", "Zapier", "Jira", "Trello", "VS Code"]
     },
     "apiIntegrations": [
       {
@@ -95,24 +105,34 @@
         "logo": "https://cdn.worldvectorlogo.com/logos/square-1.svg"
       },
       {
-        "name": "RESTful APIs",
-        "description": "Web Service Architecture",
-        "logo": "https://static.thenounproject.com/png/rest-api-icon-5998475-512.png"
+        "name": "USP Shipping API",
+        "description": "Shipping & Logistics",
+        "logo": "https://www.ups.com/assets/resources/webcontent/images/ups-logo.svg"
       },
       {
-        "name": "JWT",
-        "description": "JSON Web Tokens",
-        "logo": "https://jwt.io/img/pic_logo.svg"
+        "name": "Facebook Meta APIs",
+        "description": "Social Media Integration",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"
       },
       {
-        "name": "OAuth",
-        "description": "Authorization Framework",
-        "logo": "https://oauth.net/images/oauth-logo-square.png"
+        "name": "WhatsApp Business API",
+        "description": "Messaging Platform",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/512px-WhatsApp.svg.png"
       },
       {
-        "name": "Webhooks",
-        "description": "Real-time Data Transfer",
-        "logo": "https://static.cdnlogo.com/logos/w/78/webhook.svg"
+        "name": "Pusher",
+        "description": "Real-time Communication",
+        "logo": "https://pusher.com/static-logos/logo-mark/pusher-logo-mark-color.svg"
+      },
+      {
+        "name": "OpenAI API",
+        "description": "AI-Powered Workflows",
+        "logo": "https://openai.com/favicon.ico"
+      },
+      {
+        "name": "n8n Automation",
+        "description": "Workflow Automation",
+        "logo": "https://n8n.io/favicon.ico"
       }
     ],
     "zohoExperience": [
@@ -140,8 +160,8 @@
   },
   "experience": [
     {
-      "title": "Software Engineer",
-      "company": "Adalat Group",
+      "title": "Senior Software Engineer",
+      "company": "Adalat Group (Dentalzorg)",
       "period": "Dec 24 - Present",
       "location": "Pakistan",
       "type": "Current",
@@ -201,7 +221,7 @@
     },
     {
       "title": "Dentalzorg ERP",
-      "description": "Independently developed a dental CRM module from scratch as part of a regional ERP system, enabling clinics to manage patients, appointments, and treatments, with role-based access and automated reminders.",
+      "description": "Independently built key ERP modules, including a complete Dental CRM and a full Stock Management System with lot-wise inventory, low-stock/expiry alerts, and stock movement operations fully integrated through clean, scalable APIs.",
       "link": "https://www.dentalzorg.nl",
       "linkText": "Visit Website",
       "status": "Live"
@@ -214,11 +234,6 @@
       "duration": "2021 - Present",
       "focus": "Software Engineering",
       "coursework": ["Artificial Intelligence", "Data & Network Security"]
-    },
-    {
-      "degree": "Diploma of Associate Engineer in Mechanical Engineering (MT)",
-      "institution": "Saifee Institute of Technology",
-      "duration": "2016 - 2020"
     }
   ],
   "certifications": [
@@ -235,16 +250,58 @@
     "messageTitle": "Send Message"
   },
   "footer": {
-    "copyright": "© 2025 Muhammad Sami. All rights reserved. Built with Next.js and Tailwind CSS."
+    "copyright": "© 2026 Muhammad Sami. All rights reserved."
   },
   "navigation": [
     "Home",
-    "Summary",
     "Skills",
     "Experience",
     "Projects",
-    "Education",
-    "Certifications",
     "Get in Touch"
-  ]
+  ],
+  "portfolioAnalysis": {
+    "sectionsToRemove": [
+      {
+        "section": "Professional Summary",
+        "reason": "Redundant - already covered in hero section",
+        "action": "Merge key stats into hero section"
+      }
+    ],
+    "sectionsToSimplify": [
+      {
+        "section": "Skills - Zoho Experience",
+        "reason": "Too niche - can be part of technical skills",
+        "action": "Merge into main technical skills"
+      },
+      {
+        "section": "Skills - Other Skills (Soft Skills)",
+        "reason": "Less impactful for developer portfolios", 
+        "action": "Remove or minimize - focus on technical skills"
+      },
+      {
+        "section": "Education + Certifications",
+        "reason": "Only one item each - can be combined",
+        "action": "Create single 'Education & Certifications' section"
+      }
+    ],
+    "sectionsToAdd": [
+      {
+        "section": "GitHub Repositories",
+        "reason": "Essential for developer portfolios",
+        "action": "Add featured repositories with stats"
+      },
+      {
+        "section": "Technology Timeline",
+        "reason": "Show progression and experience levels",
+        "action": "Visual timeline of technology adoption"
+      }
+    ],
+    "optimizedNavigation": [
+      "Home",
+      "Skills",
+      "Experience", 
+      "Projects",
+      "Get in Touch"
+    ]
+  }
 }

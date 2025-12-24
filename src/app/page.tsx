@@ -105,12 +105,9 @@ export default function Home() {
 
       // Get all sections with their corresponding navigation names
       const sections = [
-        { id: "summary", nav: "summary" },
         { id: "skills", nav: "skills" },
         { id: "experience", nav: "experience" },
         { id: "projects", nav: "projects" },
-        { id: "education", nav: "education" },
-        { id: "certifications", nav: "certifications" },
         { id: "contact", nav: "get in touch" },
       ];
 
@@ -159,75 +156,262 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white">
-      {/* Navigation */}
+      {/* Enhanced Navigation with Modern Design */}
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-slate-700"
+            ? "bg-slate-900/90 backdrop-blur-xl shadow-xl border-b border-slate-700/50"
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <button className="text-2xl font-bold text-white bg-transparent hover:text-blue-400 transition-colors duration-300">
-              {data.personalInfo.profileName}
-            </button>
-            <div className="hidden md:flex space-x-4">
-              {data.navigation.map((item) => (
-                <button
+            {/* Enhanced Logo */}
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative text-2xl font-extrabold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent px-4 py-2 rounded-xl border border-transparent group-hover:border-white/10 transition-all duration-300">
+                {data.personalInfo.profileName}
+              </div>
+            </motion.button>
+
+            {/* Enhanced Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-2 bg-slate-800/50 backdrop-blur-sm rounded-full px-4 py-2 border border-slate-700/50">
+              {data.navigation.map((item, index) => (
+                <motion.button
                   key={item}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`px-4 py-2 rounded-lg transition-all duration-300 bg-transparent ${
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                     activeSection === item.toLowerCase()
-                      ? "text-slate-100 border border-slate-400 bg-slate-700/30"
-                      : "text-slate-300 hover:text-slate-100 hover:border hover:border-slate-400/50"
+                      ? "text-white shadow-lg"
+                      : "text-slate-300 hover:text-white"
                   }`}
                 >
-                  {item}
-                </button>
+                  {/* Active indicator */}
+                  {activeSection === item.toLowerCase() && (
+                    <motion.div
+                      layoutId="activeSection"
+                      className="absolute inset-0 bg-gradient-to-r from-blue-500/80 to-purple-500/80 rounded-full"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{item}</span>
+                </motion.button>
               ))}
             </div>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="md:hidden p-3 rounded-xl bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 text-white"
+            >
+              <div className="w-5 h-5 flex flex-col justify-center space-y-1">
+                <div className="w-full h-0.5 bg-white rounded transform transition-transform"></div>
+                <div className="w-full h-0.5 bg-white rounded transform transition-transform"></div>
+                <div className="w-full h-0.5 bg-white rounded transform transition-transform"></div>
+              </div>
+            </motion.button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section with Avatar */}
-      <section className="pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* Enhanced Hero Section with Modern Design */}
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/3 to-purple-500/3 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center">
-            {/* Professional Avatar and Name Container */}
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mb-8">
-              <div className="text-center lg:text-left">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-100 mb-4 leading-tight">
+            {/* Enhanced Hero Content with Better Typography */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="flex flex-col lg:flex-row items-center justify-center gap-16 mb-12"
+            >
+              <div className="text-center lg:text-left max-w-2xl">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="inline-flex items-center bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm"
+                >
+                  <span className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></span>
+                  <span className="text-sm font-medium text-slate-300">Available for new opportunities</span>
+                </motion.div>
+
+                <motion.h1 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="text-5xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent mb-6 leading-tight"
+                >
                   {data.personalInfo.profileName}
-                </h1>
-                <div className="text-xl md:text-2xl lg:text-3xl text-slate-300 mb-3 font-semibold">
-                  Software Engineer
-                </div>
-                <div className="text-lg md:text-xl text-gray-300 mb-2">
-                  {data.personalInfo.title}
-                </div>
-                <div className="text-base md:text-lg text-gray-400">
-                  {data.professionalSummary.stats.yearsExperience} Years
-                  Experience •{" "}
-                  {data.professionalSummary.stats.projectsCompleted} Projects
-                  Delivered
-                </div>
+                </motion.h1>
+
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="text-2xl md:text-3xl lg:text-4xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4 font-bold"
+                >
+                  {data.personalInfo.subtitle}
+                </motion.div>
+
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="text-lg md:text-xl text-slate-300 mb-6 leading-relaxed"
+                >
+                  Building scalable web solutions with {data.professionalSummary.stats.yearsExperience}+ years of expertise
+                </motion.div>
+
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-slate-400"
+                >
+                  <div className="flex items-center">
+                    <div className="w-8 h-8 bg-blue-500/10 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-blue-400 font-bold">{data.professionalSummary.stats.yearsExperience}</span>
+                    </div>
+                    <span>Years Experience</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-8 h-8 bg-green-500/10 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-green-400 font-bold">{data.professionalSummary.stats.projectsCompleted}</span>
+                    </div>
+                    <span>Projects Delivered</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-8 h-8 bg-purple-500/10 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-purple-400 font-bold">{data.professionalSummary.stats.apiIntegrations}</span>
+                    </div>
+                    <span>API Integrations</span>
+                  </div>
+                </motion.div>
               </div>
-              <div className="relative flex-shrink-0">
-                <div className="bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-2xl p-6 backdrop-blur-sm border border-slate-700/50 hover:border-blue-400/30 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10">
-                  <Image
-                    src={data.personalInfo.avatar}
-                    alt={`${data.personalInfo.profileName} - Software Engineer`}
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    className="w-auto h-48 md:h-56 lg:h-64 object-contain filter drop-shadow-2xl hover:scale-105 transition-all duration-500 hover:drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
+
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8, rotateY: 20 }}
+                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+                className="relative flex-shrink-0"
+              >
+                {/* Floating Animation Container */}
+                <motion.div
+                  animate={{ 
+                    y: [0, -10, 0],
+                    rotate: [0, 1, 0, -1, 0]
+                  }}
+                  transition={{ 
+                    duration: 6, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                  className="relative"
+                >
+                  {/* Glassmorphism Avatar Container */}
+                  <div className="relative bg-gradient-to-br from-white/5 to-white/1 rounded-3xl p-8 backdrop-blur-xl border border-white/10 shadow-2xl hover:shadow-blue-500/20 transition-all duration-700 group">
+                    {/* Glow Effects */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-3xl"></div>
+                    
+                    {/* Avatar Image */}
+                    <div className="relative z-10">
+                      <Image
+                        src={data.personalInfo.avatar}
+                        alt={`${data.personalInfo.profileName} - Software Engineer`}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        className="w-auto h-48 md:h-56 lg:h-72 object-contain filter drop-shadow-2xl group-hover:scale-105 transition-all duration-500 hover:drop-shadow-[0_0_40px_rgba(59,130,246,0.4)]"
+                        priority
+                      />
+                    </div>
+
+                    {/* Floating Tech Icons */}
+                    <div className="absolute -z-10">
+                      <motion.div
+                        animate={{ 
+                          y: [0, -15, 0],
+                          opacity: [0.3, 0.8, 0.3]
+                        }}
+                        transition={{ 
+                          duration: 4, 
+                          repeat: Infinity, 
+                          delay: 0 
+                        }}
+                        className="absolute -top-4 -left-4 w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center border border-blue-500/20 backdrop-blur-sm"
+                      >
+                        <span className="text-blue-400 font-bold text-sm">PHP</span>
+                      </motion.div>
+                      
+                      <motion.div
+                        animate={{ 
+                          y: [0, -12, 0],
+                          opacity: [0.3, 0.8, 0.3]
+                        }}
+                        transition={{ 
+                          duration: 3.5, 
+                          repeat: Infinity, 
+                          delay: 1 
+                        }}
+                        className="absolute -top-2 -right-6 w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center border border-yellow-500/20 backdrop-blur-sm"
+                      >
+                        <span className="text-yellow-400 font-bold text-sm">JS</span>
+                      </motion.div>
+                      
+                      <motion.div
+                        animate={{ 
+                          y: [0, -18, 0],
+                          opacity: [0.3, 0.8, 0.3]
+                        }}
+                        transition={{ 
+                          duration: 5, 
+                          repeat: Infinity, 
+                          delay: 2 
+                        }}
+                        className="absolute -bottom-6 -left-2 w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center border border-red-500/20 backdrop-blur-sm"
+                      >
+                        <span className="text-red-400 font-bold text-xs">Laravel</span>
+                      </motion.div>
+                      
+                      <motion.div
+                        animate={{ 
+                          y: [0, -14, 0],
+                          opacity: [0.3, 0.8, 0.3]
+                        }}
+                        transition={{ 
+                          duration: 4.2, 
+                          repeat: Infinity, 
+                          delay: 1.5 
+                        }}
+                        className="absolute -bottom-4 -right-4 w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center border border-cyan-500/20 backdrop-blur-sm"
+                      >
+                        <span className="text-cyan-400 font-bold text-sm">React</span>
+                      </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
 
             {/* Social & Resume Buttons */}
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
@@ -291,42 +475,6 @@ export default function Home() {
       </section>
 
       <main className="max-w-7xl mx-auto px-4 pb-16">
-        {/* Professional Summary */}
-        <section id="summary" className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Professional Summary
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-          </div>
-
-          <div className="bg-slate-800 rounded-2xl shadow-xl p-8 md:p-12 border border-slate-700">
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-slate-200 mb-2">
-                  {data.professionalSummary.stats.yearsExperience}
-                </div>
-                <div className="text-slate-300">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-slate-200 mb-2">
-                  {data.professionalSummary.stats.projectsCompleted}
-                </div>
-                <div className="text-slate-300">Projects Completed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-slate-200 mb-2">
-                  {data.professionalSummary.stats.apiIntegrations}
-                </div>
-                <div className="text-slate-300">API Integrations</div>
-              </div>
-            </div>
-
-            <p className="text-slate-300 leading-relaxed text-lg text-center">
-              {data.professionalSummary.text}
-            </p>
-          </div>
-        </section>
 
         {/* Skills */}
         <section id="skills" className="mb-20">
