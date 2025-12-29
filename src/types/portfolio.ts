@@ -10,7 +10,12 @@ export interface PersonalInfo {
   whatsappNumber: string;
   resumePath: string;
   github: string;
+  githubUsername: string;
   linkedin: string;
+  website: string;
+  portfolio: string;
+  fiverr: string;
+  upwork: string;
 }
 
 export interface ProfessionalSummary {
@@ -34,10 +39,15 @@ export interface ZohoProduct {
   logo: string;
 }
 
+export interface TechnicalSkill {
+  name: string;
+  logo: string;
+}
+
 export interface Skills {
   coreExpertise: string[];
   technical: {
-    [category: string]: string[];
+    [category: string]: TechnicalSkill[];
   };
   apiIntegrations: ApiIntegration[];
   zohoExperience: ZohoProduct[];

@@ -14,7 +14,9 @@
     "githubUsername": "sami-1999",
     "linkedin": "https://linkedin.com/in/muhammad-sami-dev",
     "website": "muhammadsamidev.vercel.app",
-    "portfolio": "https://muhammadsamidev.vercel.app"
+    "portfolio": "https://muhammadsamidev.vercel.app",
+    "fiverr": "https://www.fiverr.com/s/7YZV53W",
+    "upwork": "https://www.upwork.com/freelancers/mohammadsami5"
   },
   "professionalSummary": {
     "text": "Software Engineer with 5 years of experience building CRM, ERP, and RESTful APIs using Laravel. Developed an API CRUD Generator, reducing development time by 50%, Skilled in integrating AI-powered workflows with OpenAI, Retell AI, and n8n to automate & optimize business processes.",
@@ -37,21 +39,184 @@
       "Git"
     ],
     "technical": {
-      "Programming Languages": ["PHP", "JavaScript (ES6)", "TypeScript", "Deluge"],
-      "Frameworks & Libraries": [
-        "Laravel",
-        "CodeIgniter", 
-        "Node.js",
-        "React.js",
-        "Next.js",
-        "Zoho Apps"
+      "Programming Languages": [
+        {
+          "name": "PHP",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+        },
+        {
+          "name": "JavaScript (ES6)",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+        },
+        {
+          "name": "TypeScript",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+        },
+        {
+          "name": "Deluge",
+          "logo": "https://www.zohowebstatic.com/sites/zweb/images/productlogos/deluge.svg"
+        }
       ],
-      "Databases": ["MySQL", "Redis", "PostgreSQL", "MongoDB", "SQLite"],
-      "Cloud & DevOps": ["Docker", "Supabase", "CI/CD Pipelines", "Github Actions"],
-      "Packages": ["Sanctum", "Passport", "Spatie", "Telescope", "Pint", "PHPStan", "Pest V4", "Cashier", "Laravel Debugbar", "Socialite"],
-      "Development Best Practices": ["Agile", "Scrum", "Sprint Planning", "Code Reviews/Optimizations"],
-      "API Integrations": ["Retell AI (Voice Agent)", "Cal.com", "Stripe", "PayPal", "Authorize.net", "Square", "Twilio", "Google Maps", "Wazzup", "Umnico(meta)", "USP Shipping API"],
-      "Development Tools": ["Git", "Postman", "n8n", "Claude Code", "Zapier", "Jira", "Trello", "VS Code"]
+      "Frameworks & Libraries": [
+        {
+          "name": "Laravel",
+          "logo": "https://laravel.com/img/logomark.min.svg"
+        },
+        {
+          "name": "CodeIgniter",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg"
+        },
+        {
+          "name": "Node.js",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+        },
+        {
+          "name": "React.js",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+        },
+        {
+          "name": "Next.js",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+        },
+        {
+          "name": "Zoho Apps",
+          "logo": "https://www.zohowebstatic.com/sites/zweb/images/productlogos/one.svg"
+        }
+      ],
+      "Databases": [
+        {
+          "name": "MySQL",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+        },
+        {
+          "name": "Redis",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+        },
+        {
+          "name": "PostgreSQL",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+        },
+        {
+          "name": "MongoDB",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+        },
+        {
+          "name": "SQLite",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"
+        }
+      ],
+      "Cloud & DevOps": [
+        {
+          "name": "Docker",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+        },
+        {
+          "name": "Supabase",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
+        },
+        {
+          "name": "CI/CD Pipelines",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"
+        },
+        {
+          "name": "Github Actions",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+        }
+      ],
+      "Packages": [
+        {
+          "name": "Sanctum",
+          "logo": "https://laravel.com/img/logomark.min.svg"
+        },
+        {
+          "name": "Passport",
+          "logo": "https://laravel.com/img/logomark.min.svg"
+        },
+        {
+          "name": "Spatie",
+          "logo": "https://laravel.com/img/logomark.min.svg"
+        },
+        {
+          "name": "Telescope",
+          "logo": "https://laravel.com/img/logomark.min.svg"
+        },
+        {
+          "name": "Pint",
+          "logo": "https://laravel.com/img/logomark.min.svg"
+        },
+        {
+          "name": "PHPStan",
+          "logo": "https://laravel.com/img/logomark.min.svg"
+        },
+        {
+          "name": "Pest V4",
+          "logo": "https://laravel.com/img/logomark.min.svg"
+        },
+        {
+          "name": "Cashier",
+          "logo": "https://laravel.com/img/logomark.min.svg"
+        },
+        {
+          "name": "Laravel Debugbar",
+          "logo": "https://laravel.com/img/logomark.min.svg"
+        },
+        {
+          "name": "Socialite",
+          "logo": "https://laravel.com/img/logomark.min.svg"
+        }
+      ],
+      "Development Best Practices": [
+        {
+          "name": "Agile",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
+        },
+        {
+          "name": "Scrum",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
+        },
+        {
+          "name": "Sprint Planning",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg"
+        },
+        {
+          "name": "Code Reviews/Optimizations",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+        }
+      ],
+      "Development Tools": [
+        {
+          "name": "Git",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+        },
+        {
+          "name": "Postman",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+        },
+        {
+          "name": "n8n",
+          "logo": "https://n8n.io/favicon.ico"
+        },
+        {
+          "name": "Claude Code",
+          "logo": "https://claude.ai/favicon.ico"
+        },
+        {
+          "name": "Zapier",
+          "logo": "https://cdn.zapier.com/storage/photos/9bb9bd65601b96c3e7c937ef71ee5365.png"
+        },
+        {
+          "name": "Jira",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
+        },
+        {
+          "name": "Trello",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg"
+        },
+        {
+          "name": "VS Code",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+        }
+      ]
     },
     "apiIntegrations": [
       {
@@ -254,10 +419,12 @@
   },
   "navigation": [
     "Home",
-    "Skills",
+    "About",
+    "Skills", 
     "Experience",
     "Projects",
-    "Get in Touch"
+    "Education",
+    "Contact"
   ],
   "portfolioAnalysis": {
     "sectionsToRemove": [

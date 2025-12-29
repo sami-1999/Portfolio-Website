@@ -105,10 +105,12 @@ export default function Home() {
 
       // Get all sections with their corresponding navigation names
       const sections = [
+        { id: "about", nav: "about" },
         { id: "skills", nav: "skills" },
         { id: "experience", nav: "experience" },
         { id: "projects", nav: "projects" },
-        { id: "contact", nav: "get in touch" },
+        { id: "education", nav: "education" },
+        { id: "contact", nav: "contact" },
       ];
 
       const scrollPosition = window.scrollY + 150; // Offset for navbar
@@ -414,12 +416,12 @@ export default function Home() {
             </motion.div>
 
             {/* Social & Resume Buttons */}
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+            <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
               <a
                 href={data.personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center bg-slate-800/80 rounded-lg px-6 py-3 shadow-lg border border-slate-600/50 hover:border-slate-400/50 hover:bg-slate-700/50 transition-all duration-300 group w-full sm:w-auto"
+                className="flex items-center bg-slate-800/80 rounded-lg px-6 py-3 shadow-lg border border-slate-600/50 hover:border-slate-400/50 hover:bg-slate-700/50 transition-all duration-300 group"
                 aria-label="GitHub Profile"
               >
                 <FontAwesomeIcon
@@ -434,7 +436,7 @@ export default function Home() {
                 href={data.personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center bg-slate-800/80 rounded-lg px-6 py-3 shadow-lg border border-slate-600/50 hover:border-blue-400/50 hover:bg-slate-700/50 transition-all duration-300 group w-full sm:w-auto"
+                className="flex items-center bg-slate-800/80 rounded-lg px-6 py-3 shadow-lg border border-slate-600/50 hover:border-blue-400/50 hover:bg-slate-700/50 transition-all duration-300 group"
                 aria-label="LinkedIn Profile"
               >
                 <FontAwesomeIcon
@@ -446,14 +448,42 @@ export default function Home() {
                 </span>
               </a>
               <a
+                href={data.personalInfo.fiverr}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center bg-slate-800/80 rounded-lg px-6 py-3 shadow-lg border border-slate-600/50 hover:border-green-600/50 hover:bg-slate-700/50 transition-all duration-300 group"
+                aria-label="Fiverr Profile"
+              >
+                <div className="w-5 h-5 mr-3 flex items-center justify-center">
+                  <span className="text-green-500 font-bold text-lg group-hover:text-green-400 transition-colors duration-300">F</span>
+                </div>
+                <span className="text-slate-300 font-medium group-hover:text-white transition-colors duration-300">
+                  Fiverr
+                </span>
+              </a>
+              <a
+                href={data.personalInfo.upwork}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center bg-slate-800/80 rounded-lg px-6 py-3 shadow-lg border border-slate-600/50 hover:border-green-400/50 hover:bg-slate-700/50 transition-all duration-300 group"
+                aria-label="Upwork Profile"
+              >
+                <div className="w-5 h-5 mr-3 flex items-center justify-center">
+                  <span className="text-green-400 font-bold text-lg group-hover:text-green-300 transition-colors duration-300">U</span>
+                </div>
+                <span className="text-slate-300 font-medium group-hover:text-white transition-colors duration-300">
+                  Upwork
+                </span>
+              </a>
+              <a
                 href={data.personalInfo.resumePath}
                 download="Muhammad Sami Resume.pdf"
-                className="flex items-center bg-slate-800/80 rounded-lg px-6 py-3 shadow-lg border border-slate-600/50 hover:border-green-400/50 hover:bg-slate-700/50 transition-all duration-300 group w-full sm:w-auto"
+                className="flex items-center bg-slate-800/80 rounded-lg px-6 py-3 shadow-lg border border-slate-600/50 hover:border-purple-400/50 hover:bg-slate-700/50 transition-all duration-300 group"
                 aria-label="Download Resume"
               >
                 <FontAwesomeIcon
                   icon={faDownload}
-                  className="text-green-400 text-xl mr-3 group-hover:text-green-300 transition-colors duration-300"
+                  className="text-purple-400 text-xl mr-3 group-hover:text-purple-300 transition-colors duration-300"
                 />
                 <span className="text-slate-300 font-medium group-hover:text-white transition-colors duration-300">
                   Download Resume
@@ -475,6 +505,77 @@ export default function Home() {
       </section>
 
       <main className="max-w-7xl mx-auto px-4 pb-16">
+
+        {/* About Me */}
+        <section id="about" className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-slate-800/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-slate-700/50"
+          >
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-6">
+                  Professional Journey
+                </h3>
+                <p className="text-slate-300 text-lg leading-relaxed mb-6">
+                  {data.professionalSummary.text}
+                </p>
+                <div className="grid grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-blue-400 mb-2">
+                      {data.professionalSummary.stats.yearsExperience}+
+                    </div>
+                    <div className="text-slate-400 text-sm">Years Experience</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-green-400 mb-2">
+                      {data.professionalSummary.stats.projectsCompleted}
+                    </div>
+                    <div className="text-slate-400 text-sm">Projects Delivered</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-purple-400 mb-2">
+                      {data.professionalSummary.stats.apiIntegrations}
+                    </div>
+                    <div className="text-slate-400 text-sm">API Integrations</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="relative">
+                <div className="bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-2xl p-6 border border-blue-500/20">
+                  <h4 className="text-xl font-bold text-white mb-4">What I Do Best</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start text-slate-300">
+                      <span className="text-blue-400 mr-3 mt-1">•</span>
+                      Full-stack web application development using modern frameworks
+                    </li>
+                    <li className="flex items-start text-slate-300">
+                      <span className="text-green-400 mr-3 mt-1">•</span>
+                      RESTful API design and integration with third-party services
+                    </li>
+                    <li className="flex items-start text-slate-300">
+                      <span className="text-purple-400 mr-3 mt-1">•</span>
+                      CRM and ERP system development with scalable architecture
+                    </li>
+                    <li className="flex items-start text-slate-300">
+                      <span className="text-orange-400 mr-3 mt-1">•</span>
+                      AI-powered workflow automation and business process optimization
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </section>
 
         {/* Skills */}
         <section id="skills" className="mb-20">
@@ -507,13 +608,14 @@ export default function Home() {
                 {data.skills.coreExpertise.map((skill, index) => {
                   const skillLogos: { [key: string]: string } = {
                     PHP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
-                    JavaScript:
-                      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+                    JavaScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+                    "JavaScript (ES6)": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+                    TypeScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
                     Laravel: "https://laravel.com/img/logomark.min.svg",
-                    MySQL:
-                      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-                    "REST APIs":
-                      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+                    "React.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+                    "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+                    MySQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+                    "REST APIs": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
                     Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
                   };
 
@@ -562,39 +664,6 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             {Object.entries(data.skills.technical).map(
               ([category, skills], categoryIndex) => {
-                // Define logos for technical skills
-                const techLogos: { [key: string]: string } = {
-                  // Programming Languages
-                  PHP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
-                  JavaScript:
-                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-
-                  // Frameworks
-                  Laravel: "https://laravel.com/img/logomark.min.svg",
-                  CodeIgniter:
-                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg",
-                  "Node.js":
-                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-                  jQuery:
-                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg",
-                  "React.js":
-                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-                  "Next.js":
-                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-
-                  // Databases
-                  MySQL:
-                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-                  MariaDB: "https://cdn.worldvectorlogo.com/logos/mariadb.svg",
-                  MongoDB:
-                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-
-                  // Version Control
-                  Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-                  GitHub:
-                    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-                };
-
                 return (
                   <motion.div
                     key={category}
@@ -614,20 +683,20 @@ export default function Home() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {skills.map((skill, index) => (
                         <div
-                          key={skill}
+                          key={`${skill.name}-${index}`}
                           className="flex items-center bg-slate-700/50 rounded-lg p-3 hover:bg-slate-600/50 transition-all duration-300"
                         >
                           <div className="w-8 h-8 mr-3 flex items-center justify-center bg-slate-800/50 rounded-lg">
                             <img
-                              src={techLogos[skill]}
-                              alt={`${skill} logo`}
+                              src={skill.logo}
+                              alt={`${skill.name} logo`}
                               className="w-5 h-5 object-contain"
                               onError={(e) => {
                                 const target = e.target as HTMLImageElement;
                                 target.style.display = "none";
                                 const parent = target.parentElement;
                                 if (parent) {
-                                  parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.charAt(
+                                  parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${skill.name.charAt(
                                     0
                                   )}</span>`;
                                 }
@@ -635,7 +704,7 @@ export default function Home() {
                             />
                           </div>
                           <span className="text-slate-200 text-sm font-medium">
-                            {skill}
+                            {skill.name}
                           </span>
                         </div>
                       ))}
@@ -902,77 +971,93 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Education */}
+        {/* Education & Certifications */}
         <section id="education" className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Education</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Education & Certifications</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
           </div>
 
-          <div className="space-y-8">
-            {data.education.map((edu, index) => (
-              <div
-                key={index}
-                className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700"
-              >
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    {edu.degree}
-                  </h3>
-                  <div className="text-lg text-blue-400 font-semibold mb-4">
-                    {edu.institution}
+          <div className="space-y-12">
+            {/* Education */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
+                <FontAwesomeIcon icon={faUser} className="text-blue-400 mr-3" />
+                Academic Background
+              </h3>
+              <div className="space-y-6">
+                {data.education.map((edu, index) => (
+                  <div
+                    key={index}
+                    className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700 hover:border-slate-600 transition-colors duration-300"
+                  >
+                    <div className="text-center">
+                      <h4 className="text-2xl font-bold text-white mb-2">
+                        {edu.degree}
+                      </h4>
+                      <div className="text-lg text-blue-400 font-semibold mb-4">
+                        {edu.institution}
+                      </div>
+                      {edu.focus && (
+                        <div className="text-slate-400 mb-2">
+                          Focus: {edu.focus}
+                        </div>
+                      )}
+                      {edu.coursework && (
+                        <div className="text-slate-400">
+                          Relevant Coursework: {edu.coursework.join(", ")}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  {edu.focus && (
-                    <div className="text-slate-400 mb-2">
-                      Focus: {edu.focus}
-                    </div>
-                  )}
-                  {edu.coursework && (
-                    <div className="text-slate-400">
-                      Relevant Coursework: {edu.coursework.join(", ")}
-                    </div>
-                  )}
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </section>
+            </motion.div>
 
-        {/* Certifications */}
-        <section id="certifications" className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Certifications
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {data.certifications.map((cert, index) => (
-              <div
-                key={index}
-                className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700 hover:border-slate-600 transition-colors duration-300"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      {cert.title}
-                    </h3>
-                    <div className="text-lg text-blue-400 font-semibold mb-1">
-                      {cert.issuer}
+            {/* Certifications */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
+                <FontAwesomeIcon icon={faCalendarDays} className="text-green-400 mr-3" />
+                Professional Certifications
+              </h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                {data.certifications.map((cert, index) => (
+                  <div
+                    key={index}
+                    className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700 hover:border-slate-600 transition-colors duration-300"
+                  >
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex-1">
+                        <h4 className="text-xl font-bold text-white mb-2">
+                          {cert.title}
+                        </h4>
+                        <div className="text-lg text-blue-400 font-semibold mb-1">
+                          {cert.issuer}
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-green-900 text-green-300">
+                          {cert.date}
+                        </span>
+                      </div>
                     </div>
+                    <p className="text-slate-300 leading-relaxed">
+                      {cert.description}
+                    </p>
                   </div>
-                  <div className="text-right">
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-green-900 text-green-300">
-                      {cert.date}
-                    </span>
-                  </div>
-                </div>
-                <p className="text-slate-300 leading-relaxed">
-                  {cert.description}
-                </p>
+                ))}
               </div>
-            ))}
+            </motion.div>
           </div>
         </section>
       </main>
