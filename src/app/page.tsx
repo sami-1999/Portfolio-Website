@@ -158,8 +158,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white">
+      {/* Skip to main content for accessibility and SEO */}
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50">
+        Skip to main content
+      </a>
+      
       {/* Enhanced Navigation with Modern Design */}
       <nav
+        role="navigation"
+        aria-label="Main navigation"
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           isScrolled
             ? "bg-slate-900/90 backdrop-blur-xl shadow-xl border-b border-slate-700/50"
@@ -504,10 +511,10 @@ export default function Home() {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 pb-16">
+      <main id="main" className="max-w-7xl mx-auto px-4 pb-16">
 
         {/* About Me */}
-        <section id="about" className="mb-20">
+        <section id="about" className="mb-20" role="region" aria-labelledby="about-heading">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
