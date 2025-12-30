@@ -12,14 +12,14 @@
     "resumePath": "/Muhammad Sami Resume.pdf",
     "github": "https://github.com/sami-1999",
     "githubUsername": "sami-1999",
-    "linkedin": "https://linkedin.com/in/muhammad-sami-dev",
+    "linkedin": "https://www.linkedin.com/in/muhammad-sami-600700182",
     "website": "muhammadsamidev.vercel.app",
     "portfolio": "https://muhammadsamidev.vercel.app",
-    "fiverr": "https://www.fiverr.com/s/7YZV53W",
+    "fiverr": "https://www.fiverr.com/s/XL91P4m",
     "upwork": "https://www.upwork.com/freelancers/mohammadsami5"
   },
   "professionalSummary": {
-    "text": "Software Engineer with 5 years of experience building CRM, ERP, and RESTful APIs using Laravel. Developed an API CRUD Generator, reducing development time by 50%, Skilled in integrating AI-powered workflows with OpenAI, Retell AI, and n8n to automate & optimize business processes.",
+    "text": "Software Engineer with 5 years of experience in Ecommerce, ERP, and CRM solutions. Expert in Laravel and RESTful APIs, and creator of a CRUD Generator that speeds development by 50%. Skilled at delivering scalable, high-performance applications that drive measurable business impact.",
     "stats": {
       "yearsExperience": "5",
       "projectsCompleted": "50+",
@@ -123,67 +123,33 @@
           "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
         }
       ],
-      "Packages": [
+      "CRM & Automation": [
         {
-          "name": "Sanctum",
-          "logo": "https://laravel.com/img/logomark.min.svg"
+          "name": "Zoho CRM",
+          "logo": "https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg"
         },
         {
-          "name": "Passport",
-          "logo": "https://laravel.com/img/logomark.min.svg"
+          "name": "Zoho Creator",
+          "logo": "https://www.zohowebstatic.com/sites/zweb/images/productlogos/creator.svg"
         },
         {
-          "name": "Spatie",
-          "logo": "https://laravel.com/img/logomark.min.svg"
+          "name": "Zoho Flow",
+          "logo": "https://www.zohowebstatic.com/sites/zweb/images/productlogos/flow.svg"
         },
         {
-          "name": "Telescope",
-          "logo": "https://laravel.com/img/logomark.min.svg"
+          "name": "Zoho Forms",
+          "logo": "https://www.zohowebstatic.com/sites/zweb/images/productlogos/forms.svg"
         },
         {
-          "name": "Pint",
-          "logo": "https://laravel.com/img/logomark.min.svg"
+          "name": "Deluge Scripting",
+          "logo": "https://www.zohowebstatic.com/sites/zweb/images/productlogos/deluge.svg"
         },
         {
-          "name": "PHPStan",
-          "logo": "https://laravel.com/img/logomark.min.svg"
-        },
-        {
-          "name": "Pest V4",
-          "logo": "https://laravel.com/img/logomark.min.svg"
-        },
-        {
-          "name": "Cashier",
-          "logo": "https://laravel.com/img/logomark.min.svg"
-        },
-        {
-          "name": "Laravel Debugbar",
-          "logo": "https://laravel.com/img/logomark.min.svg"
-        },
-        {
-          "name": "Socialite",
-          "logo": "https://laravel.com/img/logomark.min.svg"
+          "name": "Workflow Automation",
+          "logo": "https://n8n.io/favicon.ico"
         }
       ],
-      "Development Best Practices": [
-        {
-          "name": "Agile",
-          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
-        },
-        {
-          "name": "Scrum",
-          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
-        },
-        {
-          "name": "Sprint Planning",
-          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg"
-        },
-        {
-          "name": "Code Reviews/Optimizations",
-          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-        }
-      ],
-      "Development Tools": [
+      "Tools & Practices": [
         {
           "name": "Git",
           "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
@@ -213,8 +179,20 @@
           "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg"
         },
         {
-          "name": "VS Code",
-          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+          "name": "Agile",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
+        },
+        {
+          "name": "Scrum",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
+        },
+        {
+          "name": "Sprint Planning",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg"
+        },
+        {
+          "name": "Code Reviews/Optimizations",
+          "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
         }
       ]
     },
@@ -299,29 +277,7 @@
         "description": "Workflow Automation",
         "logo": "https://n8n.io/favicon.ico"
       }
-    ],
-    "zohoExperience": [
-      {
-        "name": "Zoho CRM",
-        "description": "Customer Relationship Management",
-        "logo": "https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg"
-      },
-      {
-        "name": "Deluge",
-        "description": "Zoho's Scripting Language",
-        "logo": "https://www.zohowebstatic.com/sites/zweb/images/productlogos/deluge.svg"
-      }
-    ],
-    "other": {
-      "Collaboration": ["Slack", "Microsoft Teams"],
-      "Project Management Tools": ["Jira", "Trello"],
-      "Soft Skills": [
-        "Observation",
-        "Decision making",
-        "Communication",
-        "Multi-tasking"
-      ]
-    }
+    ]
   },
   "experience": [
     {
@@ -377,38 +333,51 @@
       "description": "Published a Composer package on Packagist to automate CRUD API generation using Artisan commands, streamlining route, controller, and model creation with validation. Reused across projects to reduce repetitive code and accelerate development.",
       "link": "https://packagist.org/packages/muhammadsami/laravel-crud-generator",
       "linkText": "View on Packagist",
-      "status": "Published"
+      "status": "Published",
+      "technologies": ["Laravel", "PHP", "Composer", "API Development"]
     },
     {
       "title": "Email Marketing System",
       "description": "Developed an email marketing platform with multi-server support for improved deliverability and load distribution. Implemented smart scheduling, audience segmentation, bounce tracking, and real-time server monitoring for high-volume, efficient email delivery.",
-      "status": "Production"
+      "status": "Production",
+      "technologies": ["Laravel", "Next.js", "MySQL", "Email APIs"]
     },
     {
       "title": "Dentalzorg ERP",
       "description": "Independently built key ERP modules, including a complete Dental CRM and a full Stock Management System with lot-wise inventory, low-stock/expiry alerts, and stock movement operations fully integrated through clean, scalable APIs.",
       "link": "https://www.dentalzorg.nl",
       "linkText": "Visit Website",
-      "status": "Live"
-    }
-  ],
-  "education": [
+      "status": "Live",
+      "technologies": ["Laravel", "PHP", "MySQL", "CRM", "Stock Management"]
+    },
     {
-      "degree": "Bachelor of Science in Software Engineering (BSSE)",
-      "institution": "Virtual University",
-      "duration": "2021 - Present",
-      "focus": "Software Engineering",
-      "coursework": ["Artificial Intelligence", "Data & Network Security"]
+      "title": "PPrint - Custom Shirts E-commerce",
+      "description": "PPrint is a UK-based e-commerce platform for customizable shirts. Developed a user-friendly website with a shirt customizer, real-time previews, secure checkout, and account management. Built a responsive, CMS-integrated solution to enhance the shopping experience and drive sales.",
+      "link": "https://www.pprints.co.uk/",
+      "linkText": "Visit Website",
+      "status": "Live",
+      "technologies": ["PHP", "Laravel", "E-commerce", "CMS", "Payment Gateway"]
     }
   ],
-  "certifications": [
-    {
-      "title": "Node.js Backend Development",
-      "issuer": "devTown",
-      "date": "Apr 2023",
-      "description": "Advanced Node.js programming and backend development certification"
-    }
-  ],
+  "educationAndCertifications": {
+    "education": [
+      {
+        "degree": "Bachelor of Science in Software Engineering (BSSE)",
+        "institution": "Virtual University",
+        "duration": "2021 - Present",
+        "focus": "Software Engineering",
+        "coursework": ["Artificial Intelligence", "Data & Network Security"]
+      }
+    ],
+    "certifications": [
+      {
+        "title": "Node.js Backend Development",
+        "issuer": "devTown",
+        "date": "Apr 2023",
+        "description": "Advanced Node.js programming and backend development certification"
+      }
+    ]
+  },
   "contact": {
     "formTitle": "Get In Touch",
     "formDescription": "I'm always interested in new opportunities and exciting projects. Whether you have a question or just want to say hi, feel free to reach out!",
@@ -419,56 +388,9 @@
   },
   "navigation": [
     "Home",
-    "About",
-    "Skills", 
-    "Experience",
+    "Skills",
+    "Experience", 
     "Projects",
-    "Education",
-    "Contact"
-  ],
-  "portfolioAnalysis": {
-    "sectionsToRemove": [
-      {
-        "section": "Professional Summary",
-        "reason": "Redundant - already covered in hero section",
-        "action": "Merge key stats into hero section"
-      }
-    ],
-    "sectionsToSimplify": [
-      {
-        "section": "Skills - Zoho Experience",
-        "reason": "Too niche - can be part of technical skills",
-        "action": "Merge into main technical skills"
-      },
-      {
-        "section": "Skills - Other Skills (Soft Skills)",
-        "reason": "Less impactful for developer portfolios", 
-        "action": "Remove or minimize - focus on technical skills"
-      },
-      {
-        "section": "Education + Certifications",
-        "reason": "Only one item each - can be combined",
-        "action": "Create single 'Education & Certifications' section"
-      }
-    ],
-    "sectionsToAdd": [
-      {
-        "section": "GitHub Repositories",
-        "reason": "Essential for developer portfolios",
-        "action": "Add featured repositories with stats"
-      },
-      {
-        "section": "Technology Timeline",
-        "reason": "Show progression and experience levels",
-        "action": "Visual timeline of technology adoption"
-      }
-    ],
-    "optimizedNavigation": [
-      "Home",
-      "Skills",
-      "Experience", 
-      "Projects",
-      "Get in Touch"
-    ]
-  }
+    "Get in Touch"
+  ]
 }

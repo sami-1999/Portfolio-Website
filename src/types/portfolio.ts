@@ -33,12 +33,6 @@ export interface ApiIntegration {
   logo: string;
 }
 
-export interface ZohoProduct {
-  name: string;
-  description: string;
-  logo: string;
-}
-
 export interface TechnicalSkill {
   name: string;
   logo: string;
@@ -50,10 +44,6 @@ export interface Skills {
     [category: string]: TechnicalSkill[];
   };
   apiIntegrations: ApiIntegration[];
-  zohoExperience: ZohoProduct[];
-  other: {
-    [category: string]: string[];
-  };
 }
 
 export interface Experience {
@@ -71,6 +61,7 @@ export interface Project {
   link?: string;
   linkText?: string;
   status: string;
+  technologies?: string[];
 }
 
 export interface Education {
@@ -86,6 +77,11 @@ export interface Certification {
   issuer: string;
   date: string;
   description: string;
+}
+
+export interface EducationAndCertifications {
+  education: Education[];
+  certifications: Certification[];
 }
 
 export interface Contact {
@@ -104,8 +100,7 @@ export interface PortfolioData {
   skills: Skills;
   experience: Experience[];
   projects: Project[];
-  education: Education[];
-  certifications: Certification[];
+  educationAndCertifications: EducationAndCertifications;
   contact: Contact;
   footer: Footer;
   navigation: string[];

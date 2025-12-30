@@ -11,7 +11,6 @@ import {
   faDownload,
   faPaperPlane,
   faUser,
-  faBuilding,
   faCalendarDays,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -297,8 +296,8 @@ export default function Home() {
                   className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-slate-400"
                 >
                   <div className="flex items-center">
-                    <div className="w-8 h-8 bg-blue-500/10 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-blue-400 font-bold">{data.professionalSummary.stats.yearsExperience}</span>
+                    <div className="w-8 h-8 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full flex items-center justify-center mr-3 border border-orange-500/30">
+                      <span className="text-transparent bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text font-bold">{data.professionalSummary.stats.yearsExperience}</span>
                     </div>
                     <span>Years Experience</span>
                   </div>
@@ -779,101 +778,6 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Zoho Experience Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-8"
-          >
-            <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-slate-700/50">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-                <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                Zoho Experience
-              </h3>
-              <p className="text-slate-300 mb-6">
-                Experienced with Zoho Products and their scripting language
-                Deluge
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {data.skills.zohoExperience.map((zoho, index) => (
-                  <motion.div
-                    key={zoho.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.05 }}
-                    className="group relative"
-                  >
-                    <div className="bg-slate-700/50 rounded-lg p-4 hover:bg-slate-600/50 transition-all duration-300 border border-slate-600/30 hover:border-orange-500/30">
-                      <div className="flex flex-col items-center text-center">
-                        <div className="w-12 h-12 mb-3 flex items-center justify-center bg-slate-800/50 rounded-lg">
-                          <img
-                            src={zoho.logo}
-                            alt={`${zoho.name} logo`}
-                            className="w-8 h-8 object-contain"
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.style.display = "none";
-                              const parent = target.parentElement;
-                              if (parent) {
-                                parent.innerHTML = `<span class="text-xs font-bold text-slate-400">${zoho.name.charAt(
-                                  0
-                                )}</span>`;
-                              }
-                            }}
-                          />
-                        </div>
-                        <h4 className="text-sm font-medium text-white mb-1">
-                          {zoho.name}
-                        </h4>
-                        <p className="text-xs text-slate-400 text-center">
-                          {zoho.description}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Other Skills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-8"
-          >
-            <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-slate-700/50">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-                <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                Additional Skills
-              </h3>
-              <div className="grid lg:grid-cols-3 gap-6">
-                {Object.entries(data.skills.other).map(([category, skills]) => (
-                  <div key={category}>
-                    <h4 className="text-lg font-semibold text-slate-200 mb-3">
-                      {category}
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-3 py-1.5 bg-slate-700/50 text-slate-200 rounded-lg text-sm font-medium hover:bg-purple-900/30 hover:text-purple-300 transition-all duration-300 cursor-default border border-slate-600/30 hover:border-purple-500/30"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
         </section>
 
         {/* Experience */}
@@ -998,7 +902,7 @@ export default function Home() {
                 Academic Background
               </h3>
               <div className="space-y-6">
-                {data.education.map((edu, index) => (
+                {data.educationAndCertifications.education.map((edu, index) => (
                   <div
                     key={index}
                     className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700 hover:border-slate-600 transition-colors duration-300"
@@ -1038,7 +942,7 @@ export default function Home() {
                 Professional Certifications
               </h3>
               <div className="grid md:grid-cols-2 gap-8">
-                {data.certifications.map((cert, index) => (
+                {data.educationAndCertifications.certifications.map((cert, index) => (
                   <div
                     key={index}
                     className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700 hover:border-slate-600 transition-colors duration-300"
